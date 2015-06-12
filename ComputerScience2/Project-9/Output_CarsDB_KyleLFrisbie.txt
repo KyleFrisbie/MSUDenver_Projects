@@ -1,0 +1,28 @@
+Cars in database = 27
+Honda, Accord, 2005, black, HHT 76
+Honda, Accord, 2004, black, ARP-789
+Honda, Accord, 1987, gold, XY754
+Honda, Insight, 2002, green, AAA-123 
+Chevy, Corvette, 2005, red, FG478
+Chevy, Something, 2001, gray, XX234
+Chevy, Something, 2001, white, 45OUH
+Chevy, Malibu, 1967, red, MY CAR
+Cadillac, Expensive, 1999, white, JSG1
+Ford, Explorer, 2000, white, XPLOR
+Ford, Falcon, 1967, white, XJ-1771
+Ford, Fairlane, 1959, gold, FAIRLN
+Chrysler, Something, 2002, gray, DEN-900
+Chrysler, LeBaron, 1988, black, JK4567
+Cooper, Mini, 1999, blue, MCOOP
+Volkswagon, Cheapo, 1982, primer, OLDIE
+Volkswagon, Beetle, 1999, black, 75-SRT
+Volkswagon, 412, 1979, green, 3334-AB
+Volkswagon, Beetle, 1975, yellow, BUG
+Mercedes, Expensive, 1998, black, 345-OP
+Mazda, Miata, 2000, white, D899
+Lincoln, Towncar, 1995, red, 9034-PP
+Pontiac, Firebird, 1995, red, 777-653
+Mercury, Cougar, 1968, red, CAT - 000
+Speedy, XJ7, 2006, red, 591-343
+Toyota, Celica, 2001, white, JK-12
+Toyota, Celica, 2001, white, 76 54 32

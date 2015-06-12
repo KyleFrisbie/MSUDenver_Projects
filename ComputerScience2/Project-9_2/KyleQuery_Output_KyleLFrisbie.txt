@@ -1,0 +1,30 @@
+Search for make: 
+Cadillac = 1
+Cadillac, Expensive, 1999, white, JSG1
+
+Search for model: 
+412 = 1
+Volkswagon, 412, 1979, green, 3334-AB
+
+Search for color:
+black = 5
+Honda, Accord, 2005, black, HHT 76
+Honda, Accord, 2004, black, ARP-789
+Chrysler, LeBaron, 1988, black, JK4567
+Volkswagon, Beetle, 1999, black, 75-SRT
+Mercedes, Expensive, 1998, black, 345-OP
+
+Search for year:
+1959 = 1
+Ford, Fairlane, 1959, gold, FAIRLN
+
+Search for full license:
+License search: mycar
+Found: 1
+Chevy, Malibu, 1967, red, MY CAR
+
+Search for partial license:
+License search: F%g
+Found: 1
+Chevy, Corvette, 2005, red, FG478
+

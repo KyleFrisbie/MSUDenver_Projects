@@ -1,0 +1,89 @@
+CS 2, Fall 2014                      Project #1 – Mini-Programs 
+Dr. Gurka                                         Specifications
+August 18
+
+
+Description
+Write two programs to review Java basics: file stats and primes. 
+
+Specifications for File Stats
+1.	Description.  This program analyses a text file, counting lines, letters, and digits.
+2.	Input.  The user is asked via the command line to enter the name of a file to be analyzed.  You may assume the user enters valid file name, that the file is available to be read, and that it has at least one line.
+3.	Output.  The program prints a short report to the screen with the file name and character counts.  Specific formatting is up to you.  Sample output:
+File analyzed: stuff.txt
+12 lines, 22 letters, 10 digits
+4.	Logic.  The program reads in one line at a time, counts it, then checks each character in the line.  If it is a letter (uppercase or lowercase), a counter is incremented; digits are counted similarly; all other characters are ignored.
+5.	API methods.  Use isDigit and isLetter from the Character class.
+6.	Testing.  Create four small test files (not more than five lines each): one with several lines with just digits; another with several lines with just letters (mixed case); another with letters and digits and other characters; and a final file of your choice of elements.  For each, you must count by hand how many lines, letters, and digits there are, in order to check your program's output.  Create a test plan as follows:
+
+File	Lines	Letters	Digits	OK?
+one.txt
+(digits)	3	0	14	
+two.txt
+(letters)	4	25	0	
+three.txt
+(digits, letters, other)	4	10	9	
+four.txt
+(??)	5	?	?	
+
+The last column indicates that your program produced correct counts; handing your program in is your claim that it passed the test plan.  Include the test plan as part of your cover letter, and explain what you did for the fourth test file.  Combine the four input files you used into another document (one page total), and hand them in with the project.
+ 
+
+
+
+
+
+Specifications for Primes
+1.	Description.  This interactive program finds all prime numbers in a given range.
+2.	Input.  The user is asked to enter an upper limit on a range of numbers via JOptionPane; the lower limit is always two.  You may assume the user enters an int, but you must check that it is two or more (keep prompting if the user-input data is less than two).
+3.	Output.  The program prints a short report using JOptionPane with a title, your name, the upper limit, and the list of primes found.  Specific formatting is up to you.  Sample output:
+Primes report by J. Gurka
+Upper limit = 10
+Primes:   2  3  5  7 
+4.	Logic.  The program starts its list of primes with the number two.  Then, for every candidate value up to and including the limit, the value is divided by each prime found so far.  If any divide evenly, the candidate is not a prime.  If it is found to be prime, it is added to the list of primes.
+5.	Data structures.  Use ArrayList for the list of primes.
+
+
+
+Specifications for both programs
+1.	Project time.  Remember to track the time you spend on the project, including any review work.  Record it in a chart with all the phases for each program.  Sample chart:
+Review: 2.5 hours
+File Stats program
+     Phase 1, review specs: 15 min.
+     Phase 2, create test data: 1.5 hours
+			:
+		Primes program
+		     	:
+		Cover letter with discussions & packet preparation: 1 hour, 10 minutes
+2.	Classes.  Each program will have one class, containing main and other methods.
+3.	Methods.  The main method in each program functions as a driver, using an object variable of the class type to call methods that do each of the functions.  Do not use static methods.
+4.	Data.  Use instance variables where appropriate rather than passing parameters to share data; do not use static variables.  
+5.	Library.  You may use methods from API classes as needed, as long as they do not perform the central operations of the assignment.
+6.	Testing.  For each program, create a test plan to validate your final version.  Compile frequently and test the program to that point, using your test data.  Projects proceed much faster and more smoothly when correctness is checked before moving on to the next phase.  Be sure to plan enough time to complete final testing, and possibly make corrections.
+7.	Java knowledge.  Consider writing small test programs to investigate or practice any unfamiliar or difficult Java components.  For example, you may want to write a small program that simply reads a string from the user and prints it, to ensure you can write input and output code correctly.  Do not try to incorporate such material into the full program until you have checked your understanding, because debugging is much simpler on the tiny practice program.  Get it right before placing it in the full project.  
+8.	Compiler dependency.  When creating and compiling code, do not simply type in code and then check to see if it’s syntactically correct.  First, consider carefully whether you have followed all Java syntax rules.  Over-dependence on the compiler will create time problems on later, larger programs, when you must check on every small piece of code before making progress.  As an example, you should be able to write a valid for loop without consulting references or getting compiler feedback.
+9.	Development process.  Follow the development steps illustrated in class and listed here, including stubs.  The intent is that the project will develop smoothly by working on a piece at a time and not moving on until that piece is complete and correct.  Do not begin coding immediately, and do not work on several phases simultaneously.  When any code is superseded (such as stub messages), comment it out (do not delete it).  Update documentation as needed for consistency and completeness.  
+a.	Phase 1: Review these specifications.  Do sample computations by hand to ensure your logic is correct.  Bring questions to class and office hours.  
+b.	Phase 2: Create a test plan for each program; this will also help your understanding of the program's logic.
+c.	Phase 3:  Create and compile a skeleton program with documentation, and stubs for all methods except main.  Main will simply call each method, which will print its message and return to main.  A stub consists of a method header, a body with only an output line showing the method’s name, and a fake return value if needed to compile.  This skeleton should compile and run, showing each call, and essentially doing nothing; it ensures that the program structure and interactions are correct before encoding specific functionality.  
+d.	Phase 4: Start by developing and running the simplest version of the program; leave out complex or difficult parts at first.  Use temporary documentation in your code to list what remains to be done; this is your "to do" list for developing the program further.  Continue implementing and testing one operation at a time.
+10.	Documentation.  The classes will each have a prologue comment of several lines: program name, brief description (one or two sentences), program author (you), date (month and year), course (CS 2, Fall 2014), and limitations.  Limitations are things the program doesn't do; for example, "does not handle empty files."  Very few block and online comments should be needed, since these are simple programs.  Comments should be concise, and should add information to the code (not just restate it).
+11.	Style.  Use standard Java style guidelines: methods start with a verb (doSomething), variables are self-explanatory nouns, code blocks are indented (loop bodies, etc.), blank lines separate methods, and so forth.  See your CS 1 book for details.  
+12.	Development log.  Using the included form, keep track of your time while working on this assignment.  Do not try to fill it out when the project is completed, because you will not remember details of all the phases.  Include notes on any small, practice programs you wrote along the way, and track your review time.
+13.	Cover letter.  Use the template posted on Moodle; be sure to leave enough time to complete the cover letter in a thoughtful manner.  Write notes for the cover letter as you go; this will make the final discussions more comprehensive, and much easier to write.  Each section should be concise yet thorough.  Further discussions and information to include:
+a.	Comment on your level of preparedness for CS 2 based on doing this project.  Were the programs themselves hard?  What was unfamiliar to you?  How much help did you need from me?  Explain each of your comments.
+b.	Discuss your development process.  Is this different from how you’ve developed programs before?  How well did incremental development work for you?  What problems did you have with the development process?  Any other comments?  Refer to your development log notes.  This discussion will inform me about your process, as if we had been in the lab together while you were working.
+c.	Discuss testing.  Had you done explicit testing before?  Did the test cases find errors in your logic?  If so, what were they?  
+14.	Collaboration.  This assignment is to be done on your own, with no help from classmates or anyone else.  Come to  office hours with any questions, including on the specifications themselves.  You may reference your CS 1 and CS 2 textbook and the Java site but no other sources.  The intent is to evaluate your individual, incoming knowledge, and your skill in creating and testing a Java program.  Do not search the web for help.
+15.	Plan to finish by Monday Sept. 1 (two days early), to allow for any problems that arise, and to have time for final testing, writing the cover letter, and assembling and posting the entire project.  Do not try to upload your project at the last minute, in order to avoid any Moodle difficulties that might interfere with getting the on-time time stamp.  
+16.	Project submission.  Assemble your final packet from the details in these specifications.  Post everything on Moodle and hand in a paper copy of everything.  To get on-time credit, projects must satisfy all assignment specifications given here; ask early if any are unclear.  Assignments are always due at the beginning of class; similarly, the grace period and late date end at class time on their respective days.  On the original due date, do not submit programs that are incomplete, incorrect, or not working; also, do not submit incomplete packets.  
+17.	Grace period.  For a grace period of 24 hours past the due date and time, projects will be accepted without loss of points.  These grace-period submissions require that you deliver the paper packet to me by the deadline, as well as posting everything on Moodle.  
+18.	Late projects.  Projects will be accepted up to one class day late, with a 20% penalty.  Late projects must have some phases completed and working correctly to receive any credit; any missing or flawed sections must be detailed in the cover letter.  If you will be submitting a late project, hand in a late note on the original due date (see Moodle for the template).  At least a partial project must be turned in for every assignment.
+19.	GOOJF.  One time during the semester you may use a get-out-of-jail-free card (GOOJF).  This allows a project to be submitted on the late date without losing points.  Include your request for GOOJF in your late note.
+20.	Grading will include program correctness, of course (does it process all data correctly?), as well as all the other project components specified here.  The Java code is only part of the project; the discussions are a significant portion of the final grade. Incomplete projects handed in on the on-time due date will be treated as late, and graded accordingly.  This includes the discussions, which must be thorough; do not just dash off short comments.
+21.	Hand in the following items, completed as specified.  Review your code printout for readability before handing it in.  The entire packet must be submitted on Moodle and handed in on paper in class.  
+a.	cover letter 
+b.	source code (two programs)
+c.	input test data from File Stats program (one page)
+22.	Grading.  50 points: 20 points per program, 10 points for cover letter discussions, charts, etc.
+23.	Due: Wednesday, September 3.  Paper packet at the beginning of class; Moodle copies uploaded (time stamped) before class.  Note: the next project will be assigned before this due date is reached.

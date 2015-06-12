@@ -1,0 +1,50 @@
+This page contains a list of the numbers taken from the input file, and their index positions.
+Input Number		Original Index
+88			1
+80			2
+66			3
+99			4
+22			5
+88			6
+54			7
+100			8
+77			9
+29			10
+100			11
+98			12
+66			13
+11			14
+73			15
+The amount of numbers from the input file that fit in the array are: 15
+The amount of numbers from the input file that did not fit in the array is: 4
+
+Kyle L Frisbie
+
+
+
+
+This page contains a list of the numbers taken from the input file, and their index positions.
+Input Number		Original Index
+11			14
+22			5
+29			10
+54			7
+66			3
+66			13
+73			15
+77			9
+80			2
+88			6
+88			1
+98			12
+99			4
+100			11
+100			8
+The amount of numbers from the input file that fit in the array are: 15
+The amount of numbers from the input file that did not fit in the array is: 4
+
+Kyle L Frisbie
+
+
+
+

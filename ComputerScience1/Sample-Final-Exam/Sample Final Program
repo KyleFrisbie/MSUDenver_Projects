@@ -1,0 +1,123 @@
+import java.util.*;
+import java.io.*;
+
+public class PracticeFinal {
+
+	public static void main(String[] args) {
+		String[] names = new String[19];
+		int[][] littleNumber = new int[19][2];
+		double[][] bigNumber = new double[19][3];
+		int linesRemain = 0;
+		int linesRead = 0;
+		double average = 0;
+		
+		final String INPUT_FILE = "H:Input.txt" ;
+		final String OUTPUT_FILE = "G:Output.txt";
+		
+		File inputDataFile = new File(INPUT_FILE);
+		Scanner inputFile = new Scanner(inputDataFile);
+		File outputDataFile = new File(OUTPUT_FILE);
+		PrintWriter outputFile = new PrintWriter(outputDataFile);
+		
+		linesRead = readNumbers(inputFile, names, littleNumber, bigNumber, linesRemain, linesRead);
+		
+		outputData(outputFile, names, littleNumber, bigNumber, linesRead);
+
+		average = calcAverage(littleNumber, average, linesRead);
+		
+		searchNames(names, littleNumber, linesRead);
+		
+		findTiny2(bigNumber, linesRead);
+	}
+	
+	public static int readNumbers(Scanner inFile, String[] nameAry, int[][] little, double[][] big, int remaining, int read) {
+		for (int i = 0; i < nameAry.length && inFile.hasNext(); i++) {
+			big[i][0] = inFile.nextDouble();
+			little[i][0] = inFile.nextInt();
+			big[i][1] = inFile.nextDouble();
+			little[i][1] = inFile.nextInt();
+			big[i][2] = inFile.nextDouble();
+			nameAry[i] = inFile.nextLine().trim();
+			read = i + 1;
+		}
+		if (inFile.hasNext()) {
+			inFile.nextLine();
+			remaining++;
+		}
+		System.out.println("The file had " + remaining + " lines to read.");
+		return read;
+	}
+	
+	public static void outputData(PrintWriter outFile, String[] nameAry, int[][] littleAry, double[][] bigAry, int readLines) {
+		outFile.println("Table of names and numbers");
+		outFile.println("Name\t\tDouble1\tInteger1\tDouble2\tInteger2\tDouble3");
+		for (int i = 0; i < readLines; i++) {
+			outFile.println(nameAry[i] + "\t\t" +bigAry[i][0] + littleAry[i][0] + bigAry[i][1] + littleAry[i][1] + bigAry[i][2]);
+		}
+		outFile.println("Number of data lines stored in the arrays: " + readLines);
+	}
+
+	public static double calcAverage(int[][] littleNum, double avg, int lines) {
+		int sumHolder = 0;
+		if (lines > 0) {
+			for(int i = 0; i < lines; i++) {
+				sumHolder += littleNum[i][1];
+			}
+		} else {
+			System.out.println("It appears no lines were read from your input file");
+		}
+		
+		return ((double)(sumHolder))/lines;
+	}
+	
+	public static void searchNames(String[] nAry, int[][] lAry, int lRead) {
+		String string1;
+		String string2;
+		boolean nameFound = false;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Please enter the name you would like to search for");
+		string1 = keyboard.nextLine();
+		for(int i = 0; i < lRead; i++) {
+			string2 = nAry[i];
+			if(string1.compareTo(string2) == 0) {
+				System.out.println(string1 + " was found! The integers corresponding to this name are: " + lAry[i][0] + "and" + lAry[i][1]);
+				nameFound = true;
+			}
+		}
+		if (nameFound == false) {
+			System.out.println("I'm sorry, the name you searched for was not found.");
+		}
+		
+	}
+
+	public static void findTiny2(double[][] bigNumAry, int read) {
+		double tiny1;
+		double tiny2;
+		int place = -1;
+		if (read >= 2) {
+			double tiny1 = bigNumAry[2][0];
+			double tiny2 = bigNumAry[2][1];
+			place = 1;
+		}
+		double numHold;
+		if (tiny2 < tiny1) {
+			numHold = tiny1;
+			tiny1 = tiny2;
+			tiny2 = numHold;
+			place = 0;
+		}
+		for (int i = 2; i < read; i++) {
+			numHold = bigNumAry[2][i];
+			if (numHold <= tiny1) {
+				tiny2 = tiny1;
+				tiny1 = numHold;
+				place = i - 1;
+			} else if (numHold < tiny2) {
+				tiny2 = numHold;
+				place = i;
+			}
+			System.out.println("The second smallest smallest value is: " + tiny2 + "and it was found at index: " + place);
+		}
+		
+	}
+}

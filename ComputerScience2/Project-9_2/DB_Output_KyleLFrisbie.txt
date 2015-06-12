@@ -1,0 +1,30 @@
+Entire database print:
+Cars present = 27
+MAKE         MODEL       YEAR   COLOR   LICENSE        
+HONDA        ACCORD      2005   BLACK   HHT 76         
+HONDA        ACCORD      2004   BLACK   ARP-789        
+HONDA        ACCORD      1987   GOLD    XY754          
+HONDA        INSIGHT     2002   GREEN   AAA-123        
+CHEVY        CORVETTE    2005   RED     FG478          
+CHEVY        SOMETHING   2001   GRAY    XX234          
+CHEVY        SOMETHING   2001   WHITE   45OUH          
+CHEVY        MALIBU      1967   RED     MY CAR         
+CADILLAC     EXPENSIVE   1999   WHITE   JSG1           
+FORD         EXPLORER    2000   WHITE   XPLOR          
+FORD         FALCON      1967   WHITE   XJ-1771        
+FORD         FAIRLANE    1959   GOLD    FAIRLN         
+CHRYSLER     SOMETHING   2002   GRAY    DEN-900        
+CHRYSLER     LEBARON     1988   BLACK   JK4567         
+COOPER       MINI        1999   BLUE    MCOOP          
+VOLKSWAGON   CHEAPO      1982   PRIMER  OLDIE          
+VOLKSWAGON   BEETLE      1999   BLACK   75-SRT         
+VOLKSWAGON   412         1979   GREEN   3334-AB        
+VOLKSWAGON   BEETLE      1975   YELLOW  BUG            
+MERCEDES     EXPENSIVE   1998   BLACK   345-OP         
+MAZDA        MIATA       2000   WHITE   D899           
+LINCOLN      TOWNCAR     1995   RED     9034-PP        
+PONTIAC      FIREBIRD    1995   RED     777-653        
+MERCURY      COUGAR      1968   RED     CAT - 000      
+SPEEDY       XJ7         2006   RED     591-343        
+TOYOTA       CELICA      2001   WHITE   JK-12          
+TOYOTA       CELICA      2001   WHITE   76 54 32       

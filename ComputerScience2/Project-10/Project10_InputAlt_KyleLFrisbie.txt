@@ -1,0 +1,10 @@
+cat, 871
+dog, 027
+swan, 302
+puppy, 117
+kitten, 554
+owl, 986
+ant, 110
+wolf, 337
+cyote, 347
+fox, 367

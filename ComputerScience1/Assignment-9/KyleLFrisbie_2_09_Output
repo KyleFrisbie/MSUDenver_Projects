@@ -1,0 +1,32 @@
+This program takes an input .txt file with multiple values for miles 
+driven. The program analyzes the mileage values from the input file 
+and stores them in an array called mileage. The program then 
+calculates the appropriate reimbursement for each distance traveled 
+based on values provided for in the spec, and stores them in another 
+array (parallel to the mileage array) called reimb. While the program 
+is assessing the values, it is printing a table containing the mileage 
+value along with its associated reimbursement amount within a new 
+output file. Averages of all reimbursement values as well as all 
+mileage values will be also be calculated. After the program has 
+concluded assessing and printing mileage values and reimbursement 
+values, it prints a summary of total reimbursement, the number of 
+mileage values processed, the total of the mileage values > 0, and the 
+number of positive mileage values. 
+Mileage 		Reimbursement
+3333.3		238.99800000000002
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+0.0		*****
+
+The total amount of reimbursement is: 239.00
+The total number of mileage values processed are: 10
+The number of positive mileage values processed are: 1.0
+The number of mileage values > 0 are: 3333.3
+The average of mileage values > 0 is: 3333.3
+The average of reimbursement > 0 is: 238.99800000000002

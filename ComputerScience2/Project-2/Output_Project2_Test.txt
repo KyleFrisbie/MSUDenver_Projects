@@ -1,0 +1,23 @@
+Program 2: Triangle Checker
+Program Author: Kyle L Frisbie
+Test File Author: Kyle L Frisbie
+Date Generated: Sun Sep 21 14:41:40 MDT 2014
+
+Input: 30 40 50 
+Result: Your triangle is SCALENE
+Result: Your triangle is RIGHT
+-----
+Input: 10 20 25 
+Result: Your triangle is SCALENE
+-----
+Input: 2 2 3 
+Result: Your triangle is ISOSCELES
+-----
+Input: 2 2 4 
+Result: Your triangle is ISOSCELES
+Result: Your triangle is a SPECIAL CASE TRIANGLE
+The two short sides of your triangle lay directly 
+on top of the long side of your triangle.
+-----
+Input: -1 
+Result: Exiting program.

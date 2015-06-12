@@ -1,0 +1,110 @@
+Search for make: 
+Honda = 4
+Honda, Accord, 2005, black, HHT 76
+Honda, Accord, 2004, black, ARP-789
+Honda, Accord, 1987, gold, XY754
+Honda, Insight, 2002, green, AAA-123 
+
+Search for make: 
+Volkswagon = 4
+Volkswagon, Cheapo, 1982, primer, OLDIE
+Volkswagon, Beetle, 1999, black, 75-SRT
+Volkswagon, 412, 1979, green, 3334-AB
+Volkswagon, Beetle, 1975, yellow, BUG
+
+Search for make: 
+Speedy = 1
+Speedy, XJ7, 2006, red, 591-343
+
+Search for model: 
+Insight = 1
+Honda, Insight, 2002, green, AAA-123 
+
+Search for model: 
+Accord = 3
+Honda, Accord, 2005, black, HHT 76
+Honda, Accord, 2004, black, ARP-789
+Honda, Accord, 1987, gold, XY754
+
+Search for color:
+red = 6
+Chevy, Corvette, 2005, red, FG478
+Chevy, Malibu, 1967, red, MY CAR
+Lincoln, Towncar, 1995, red, 9034-PP
+Pontiac, Firebird, 1995, red, 777-653
+Mercury, Cougar, 1968, red, CAT - 000
+Speedy, XJ7, 2006, red, 591-343
+
+Search for color:
+green = 2
+Honda, Insight, 2002, green, AAA-123 
+Volkswagon, 412, 1979, green, 3334-AB
+
+Search for year:
+2002 = 2
+Honda, Insight, 2002, green, AAA-123 
+Chrysler, Something, 2002, gray, DEN-900
+
+Search for year:
+1987 = 1
+Honda, Accord, 1987, gold, XY754
+
+Search for full license:
+License search: AAA-123
+Found: 1
+Honda, Insight, 2002, green, AAA-123 
+
+Search for full license:
+License search: AAA123
+Found: 1
+Honda, Insight, 2002, green, AAA-123 
+
+Search for full license:
+License search: AAA 123
+Found: 1
+Honda, Insight, 2002, green, AAA-123 
+
+Search for full license:
+License search: AAA
+Not Found.
+
+Search for full license:
+License search: 123 AAA
+Not Found.
+
+Search for partial license:
+License search: A
+Found: 6
+Honda, Accord, 2004, black, ARP-789
+Honda, Insight, 2002, green, AAA-123 
+Chevy, Malibu, 1967, red, MY CAR
+Ford, Fairlane, 1959, gold, FAIRLN
+Volkswagon, 412, 1979, green, 3334-AB
+Mercury, Cougar, 1968, red, CAT - 000
+
+Search for partial license:
+License search: 3
+Found: 8
+Honda, Insight, 2002, green, AAA-123 
+Chevy, Something, 2001, gray, XX234
+Volkswagon, 412, 1979, green, 3334-AB
+Mercedes, Expensive, 1998, black, 345-OP
+Lincoln, Towncar, 1995, red, 9034-PP
+Pontiac, Firebird, 1995, red, 777-653
+Speedy, XJ7, 2006, red, 591-343
+Toyota, Celica, 2001, white, 76 54 32
+
+Search for partial license:
+License search: X Y
+Found: 1
+Honda, Accord, 1987, gold, XY754
+
+Search for partial license:
+License search: xj1
+Found: 1
+Ford, Falcon, 1967, white, XJ-1771
+
+Search for partial license:
+License search: HI
+Not Found.
+

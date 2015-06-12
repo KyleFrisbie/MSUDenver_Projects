@@ -1,0 +1,56 @@
+CS 1050, Mr. Kramer        	       Programming Assignment #10	          # points: 60
+
+Purpose		Input to and sort partially filled arrays.
+
+Due Date		Per the Course at a Glance. Cannot be resubmitted.
+
+Submissions	In this order: printed copies of the source code with line numbers, input file #1, output file #1, input file #2 and output file #2.
+ 
+Java Topics	Partially-filled arrays, sorting such arrays using an index array.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+				The programming standards and guidelines as discussed in class.
+
+Specification	
+
+Write a Java program that reads a list of numbers and outputs the sorted list along with the index of each number in the original list. The index of each number is 1 + its original subscript. For example, if the original subscript is 0, the index is 1. Sort smallest to largest (ascending order).
+
+Example:  if the input is 18  14  19 (the input file is actually one number per line),
+the output is
+
+	14		2
+	18		1
+	19		3
+
+1.	Assume that the input file has all integers and there is one number per data line.  Read the numbers into an array of length 15 (use a constant to define the number of elements in the array) until the end of file (which might be < 15) or the array is full. If there are more than 15 numbers in the file, only the first 15 will be sorted.  The program reads from a file and writes to a different file. The only output to the screen should be the number of numbers processed.  The input is by a method which returns the number of elements in the array, which might be only partially filled.
+
+2.	After the array is filled, use a method to print the list of numbers, including an appropriate heading.  Then print on the same page the number of numbers in the array and the number of numbers that do not fit in the array (with appropriate messages).
+
+3.	Sort the numbers and on a new page (output '\f' to get a form feed) print the list again along with the index of the number in the original list, including an appropriate heading. Finally print your name. All output should be in one file.
+
+
+Call the Selection Sort method as the basis for your sort. It is a revision of the Selection Sort on p. 469 in the textbook and is in the Toolkit_General.
+
+The main program consists mostly of method calls.  Declare the variables used in the main program inside the main program. That is, do not use non-local (global) variables outside the main program. Use one file for all the source code and the programming guidelines we’ve discussed, no separate class file. 
+
+Data to use:  run the program twice, each with one of these two sets of data. (For the second run, you will have to change the names of the input and output files in your program.) Use the order shown here, but enter one number per line in your input file:
+
+Set 1		88  80  66  99  22  88  54  100 77  29  100  98  66  11  73  98 100  7  21
+
+Set 2		4  3  2  1  6  5
+
+The data files are named
+
+	YourName_S_10_Input_Set1.txt		YourName_S_10_Input_Set2.txt
+	YourName_S_10_Output_Set1.txt		YourName_S_10_Output_Set2.txt
+
+where S is the section number, as usual.
+
+Note that Set 1 has more than 15 numbers and Set 2 has fewer than 15 entries.
+
+Programming note: to keep track of the original position of a number, use one of these two approaches:
+
+Approach 1	Create a parallel array, say ary, with ary[i] = i+1. Sort the array of numbers, and when two array elements are exchanged also exchange the corresponding elements in ary.
+
+Approach 2	Create a parallel array, say ary, with ary[i] = i+1 . Only exchange elements in ary, and when the sort is completed, ary[0] will be the subscript of the smallest number, and ary[1] the subscript of the next smallest, etc.
+

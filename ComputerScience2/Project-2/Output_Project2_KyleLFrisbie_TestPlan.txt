@@ -1,0 +1,80 @@
+Program 2: Triangle Checker
+Program Author: Kyle L Frisbie
+Test File Author: Kyle L Frisbie
+Date Generated: Fri Sep 19 15:13:25 MDT 2014
+
+Input: 1 2 
+Error: Your input contains less than three numbers. 
+Please enter three valid integers for the sides of a triangle
+-----
+Input: 5.6 4 3 
+Error: Your input contains an invalid operator, you entered (.). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains a decimal number, you entered (5.6). 
+You are not allowed to use decimal numbers when entering the sides of a triangle
+-----
+Input: 1 2 D 
+Error: Your input contains invalid letters, you entered (D). 
+You are not allowed to use letters when entering the sides of a triangle.
+-----
+Input: 1 2 3 4 
+Error: Your input contains more than three numbers. 
+Please enter three valid integers for the sides of a triangle.
+-----
+Input: 0 -1 5 
+Error: Your input contains an invalid operator, you entered (-). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains a non-positive integer, you entered (0). 
+You are not allowed to use non-positive integers when entering the sides of a triangle
+-----
+Error: Your input contains a non-positive integer, you entered (-1). 
+You are not allowed to use non-positive integers when entering the sides of a triangle
+-----
+Input: 3 4 6 
+Result: Your triangle is SCALENE
+-----
+Input: 3 3 5 
+Result: Your triangle is ISOSCELES
+-----
+Input: 3 3 3 
+Result: Your triangle is EQUILATERAL
+-----
+Input: 3 4 5 
+Result: Your triangle is SCALENE
+Result: Your triangle is RIGHT
+-----
+Input: 2, 2, 3 
+Error: Your input contains an invalid operator, you entered (,). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains an invalid operator, you entered (,). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Input: 22 3 
+Error: Your input contains less than three numbers. 
+Please enter three valid integers for the sides of a triangle
+-----
+Input: 3 4 5 
+Result: Your triangle is SCALENE
+Result: Your triangle is RIGHT
+-----
+Input: -3 +4 /5 
+Error: Your input contains an invalid operator, you entered (-). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains an invalid operator, you entered (+). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains an invalid operator, you entered (/). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains a non-positive integer, you entered (-3). 
+You are not allowed to use non-positive integers when entering the sides of a triangle
+-----
+Input: 
+Error: You did not enter any information. Please input three integer values to identify a triangle.
+-----
+Input: -1 
+Result: Exiting program.

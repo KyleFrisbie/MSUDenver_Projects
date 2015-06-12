@@ -1,0 +1,58 @@
+CS 1050, Mr. Kramer               Programming Assignment  #7                          # of pts: 70 
+
+Purpose	Calculate mileage reimbursement based on a table.
+
+Due Date	Per the Course at a Glance. Cannot be redone.
+
+Submissions	In this order: printed copy of the source code with line numbers, the input file and the output file.
+
+Java Topics	Java I/O, while loops, if-else-if statements, summing and averaging data. Use of leftPad and rightPad in the Toolkit_General class.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+	Toolkit_General.java (in the same folder as your program)
+
+Specification
+
+The Mathematical Association of America hosts an annual summer meeting.  Each state sends one official delegate to the section officers’ meeting at this summer session.  The national organization reimburses the official state delegates according to the scale at the bottom of the page.  Write a Java program to calculate the reimbursement values, satisfying the following:
+
+1.	Read data from a file and write data to a file. There should be only one input file and only one (separate) output file. The files are named, respectively,
+a.	YourName_S_07_Input.txt		“S” is the section number
+b.	YourName_S_07_Output.txt
+
+2.	The first line of the input file contains an integer number of data values to process.  After the first line of the input file, each line contains a real number which is the number of miles. Use a while loop to process the mileage values from the input file. Do NOT use an array.
+
+3.	Use an “if/else/if” construct and the scale below to calculate the mileage reimbursement if the input value is > 0. We’ll discuss an alternative method in class that you can use if you want.
+
+4.	The main method should declare all the variables at the start. Do not use a separate class for storage. Create at least the following methods, both called from main:
+a.	Method to print heading for the table
+b.	Method to output the summary information
+Also use the leftPad method in the Toolkit_General to pad a number. The Java file with this method is on Blackboard under Assignments and will be discussed in class. 
+
+5.	Output the results in a table format. There should be one line of output for each mileage value processed.  The table should have a heading for the table and for each of the columns.  The columns of the table should be lined up by the decimal point which can be done using the leftPad method. Each detail line of the table will contain the number of miles (double – print with one decimal place) and the reimbursement amount (double – print with two decimal places).  If the input value is <= 0, output five stars in place of the reimbursement amount. 
+
+6.	After all the data values have been processed, print the total of the reimbursement values, the number of mileage values processed, and the number of mileage values that are >= 0.  Include phrases to identify each of the numbers.
+
+You will need to create an input file containing the following data – the file should contain one number per line.  Use this data in the input file to your program.  DO NOT change these numbers.
+
+      10    250.6   99.4    -2.78    999.4    799.4    1899.8    0   1300.2    1101.7   3333.3
+
+(The first number is the number of numbers to process.)
+
+Reimbursement scale:
+Round trip mileage                        Rate
+less than 400 miles			18 cents per mile
+≥ 400, < 900 miles			$ 65.00 plus 15 cents for each mile over 400 
+≥ 900 miles, < 1300 miles		$115.00 plus 12 cents for each mile over 900
+≥ 1300, < 1900 miles			$140.00 plus 10 cents for each mile over 1300
+≥ 1900, < 2600 miles			$165.00 plus 8 cents for each mile over 1900
+≥ 2600 miles			$195.00 plus 6 cents for each mile over 2600
+
+Be sure to appropriately document this program as has been done in previous assignments. Hand in printed copies (in this order) of the source code (with line numbers), your input file, and the output file.
+
+Discussion
+
+1.	Outlining the program
+2.	Methods to use
+3.	How to test the program (sample input file: 1 250.6.  I.E., use one number at a time in each scale range)
+4.	The leftPad method (time permitting: develop the method in class)
+

@@ -1,0 +1,100 @@
+ /* Seperate class file, part of main file KyleLFrisbie_2_06. Class file called
+	 upon by main file in order to calculate perimeter and area of a triangle
+	 with values input by user
+	 
+	 Methods:
+	 	KyleLFrisbie_2_06_Triangle() - default (no arg) constructor:initialize
+			length1, length2, and length3 to 0
+		KyleLFrisbie_2_06_Triangle(double value1, double value2, double value3)
+			- constructor: initialize length1 to value1, length2 to value2, and
+			  length3 to value3
+		getLengthSides() - prompts user to input 3 values into length1, 2, and 3
+		getOneSide() - prompts user to enter value of one side of triangle
+		getPerimeter() - calculates the perimeter
+		getArea() - calculates area
+		outputSides() - output just the sides of the triangle
+*/
+
+import java.util.Scanner;
+
+public class KyleLFrisbie_2_06_Triangle {
+
+	Scanner keyboard = new Scanner(System.in);
+   
+	private double length1, length2, length3; // Instance variables, length of
+															//		sides of triangle	
+   
+   // Default (no arg) constructor - initialize length1, 2, and 3 to 0
+   
+	public KyleLFrisbie_2_06_Triangle() {
+	length1 = 0;
+	length2 = 0;
+	length3 = 0;
+   }
+   
+   // Constructor (3-arg) - initialize length1 to value1, length2 to value2,
+   //		and length3 to value3
+   
+	public KyleLFrisbie_2_06_Triangle(double value1, double value2,
+		double value3) {
+		
+		length1 = value1;
+		length2 = value2;
+		length3 = value3;
+	}
+   
+   // Assign length of sides of triangle from user to length variable
+   
+	public void getLengthSides() throws Exception {
+		length1 = getOneSide(1);
+		length2 = getOneSide(2);
+		length3 = getOneSide(3);
+	}
+   
+   // Get length of sides of triangle from user
+   
+	public double getOneSide(int sideNumber) throws Exception {
+      
+		double inputValue = 0;  // Start loop at 0 to prevent first error message
+      
+		do {
+			if (inputValue < 0) {
+				System.out.println("A valid side must be > 0, not: " + inputValue);
+			}
+			System.out.print("Enter the value for the length of side " + sideNumber
+                          + " (enter 0 to exit): ");
+			inputValue = keyboard.nextDouble();
+			if (inputValue == 0) {
+				System.out.println("You entered 0, now exiting program.");
+				System.exit(0);
+			}
+		} while (inputValue < 0);
+      
+		return inputValue;
+	}
+   
+   // Calculate the perimeter
+    
+	public double getPerimeter() {
+		return (length1 + length2 + length3);
+	}
+   
+   // Calculate the area using Heron's formula
+   // area = Square Root(s * (s-a) * (s-b) * (s-c))
+   //    where s = the semiperimeter   
+   
+	public double getArea() {
+		return (Math.sqrt((getPerimeter() / 2.0) *
+							  	(getPerimeter() - length1) *
+                       	(getPerimeter() - length2) *
+                       	(getPerimeter() - length3)));
+	}
+   
+   // Output just the sides of the triangle
+   
+	public void outputSides() {
+		System.out.println("\nThe lengths of the sides of the triangle entered"
+            				 + "are:\n\tSide 1 = " + length1 + "\n\tSide 2 = "
+                         + length2 + "\n\tSide 3 = " + length3);
+	}
+}

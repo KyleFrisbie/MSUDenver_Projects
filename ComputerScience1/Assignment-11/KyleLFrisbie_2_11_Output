@@ -1,0 +1,117 @@
+                            Fabulous Furniture Company
+                                 Payroll Report
+
+Employee Name             Net Pay    Gross Pay  Federal Tax    State Tax        Hours     Pay Rate
+Hancock John               373.27       487.21        87.70        21.92        41.00        11.74
+Light Karen L              451.82       583.00       104.94        26.24        50.00        10.60
+Fagan Bert Todd            496.26       637.20       114.70        28.67        52.00        10.80
+Antrim Forrest N           766.67       966.96       174.05        43.51        62.00        12.24
+Camden Warren              437.90       566.02       101.88        25.47        38.40        14.74
+Mulicka Al B               432.80       559.80       100.76        25.19        44.33        12.04
+Lee Phoebe                8505.94     10405.10      1872.92       468.23       410.75        13.40
+Bright Harry               198.11       273.60        49.25        12.31        24.00        11.40
+Garris Ted                 327.67       431.60        77.69        19.42        41.00        10.40
+Benson Martyne             411.64       534.00        96.12        24.03        43.00        12.00
+Lloyd Jeanine D           5838.66      7152.32      1287.42       321.85       310.90        12.40
+Leslie Bennie A            482.98       621.00       111.78        27.95        44.00        13.50
+Brandt Leslie              594.86       757.44       136.34        34.08        48.40        14.40
+Schulman David             428.61       554.70        99.85        24.96        42.00        12.90
+Worthington Dan            464.42       598.37       107.71        26.93        50.10        10.84
+Hall Gus W                 968.28      1212.83       218.31        54.58        70.40        12.66
+Prigeon Dale R             393.20       511.51        92.07        23.02        40.10        12.74
+Fitzgibbons Rusty          427.70       553.58        99.64        24.91        43.00        12.44
+Feistner Merle S           525.78       673.20       121.18        30.29        50.00        12.24
+Hallquist Dottie           206.49       283.82        51.09        12.77        23.00        12.34
+Bolton Seth                375.93       490.45        88.28        22.07        43.33        10.90
+Taylor Gregg               418.94       542.90        97.72        24.43        43.00        12.20
+Raskin Rose                430.02       556.42       100.16        25.04        42.00        12.94
+Kenwood Pat                536.85       686.69       123.60        30.90        50.10        12.44
+Slaughter Lew              531.93       680.69       122.52        30.63        44.33        14.64
+
+TOTALS                   25026.73     31320.41      5637.68      1409.40      1751.14       308.94
+
+The number of employees processed from the input file are: 25
+
+
+
+
+Resorted alphabetically:
+
+                            Fabulous Furniture Company
+                                 Payroll Report
+
+Employee Name             Net Pay    Gross Pay  Federal Tax    State Tax        Hours     Pay Rate
+Antrim Forrest N           766.67       966.96       174.05        43.51        62.00        12.24
+Benson Martyne             411.64       534.00        96.12        24.03        43.00        12.00
+Bolton Seth                375.93       490.45        88.28        22.07        43.33        10.90
+Brandt Leslie              594.86       757.44       136.34        34.08        48.40        14.40
+Bright Harry               198.11       273.60        49.25        12.31        24.00        11.40
+Camden Warren              437.90       566.02       101.88        25.47        38.40        14.74
+Fagan Bert Todd            496.26       637.20       114.70        28.67        52.00        10.80
+Feistner Merle S           525.78       673.20       121.18        30.29        50.00        12.24
+Fitzgibbons Rusty          427.70       553.58        99.64        24.91        43.00        12.44
+Garris Ted                 327.67       431.60        77.69        19.42        41.00        10.40
+Hall Gus W                 968.28      1212.83       218.31        54.58        70.40        12.66
+Hallquist Dottie           206.49       283.82        51.09        12.77        23.00        12.34
+Hancock John               373.27       487.21        87.70        21.92        41.00        11.74
+Kenwood Pat                536.85       686.69       123.60        30.90        50.10        12.44
+Lee Phoebe                8505.94     10405.10      1872.92       468.23       410.75        13.40
+Leslie Bennie A            482.98       621.00       111.78        27.95        44.00        13.50
+Light Karen L              451.82       583.00       104.94        26.24        50.00        10.60
+Lloyd Jeanine D           5838.66      7152.32      1287.42       321.85       310.90        12.40
+Mulicka Al B               432.80       559.80       100.76        25.19        44.33        12.04
+Prigeon Dale R             393.20       511.51        92.07        23.02        40.10        12.74
+Raskin Rose                430.02       556.42       100.16        25.04        42.00        12.94
+Schulman David             428.61       554.70        99.85        24.96        42.00        12.90
+Slaughter Lew              531.93       680.69       122.52        30.63        44.33        14.64
+Taylor Gregg               418.94       542.90        97.72        24.43        43.00        12.20
+Worthington Dan            464.42       598.37       107.71        26.93        50.10        10.84
+
+TOTALS                   25026.73     31320.41      5637.68      1409.40      1751.14       308.94
+
+The number of employees processed from the input file are: 25
+
+
+
+
+Resorted by gross pay in ascending order:
+
+                            Fabulous Furniture Company
+                                 Payroll Report
+
+Employee Name             Net Pay    Gross Pay  Federal Tax    State Tax        Hours     Pay Rate
+Bright Harry               198.11       273.60        49.25        12.31        24.00        11.40
+Hallquist Dottie           206.49       283.82        51.09        12.77        23.00        12.34
+Garris Ted                 327.67       431.60        77.69        19.42        41.00        10.40
+Hancock John               373.27       487.21        87.70        21.92        41.00        11.74
+Bolton Seth                375.93       490.45        88.28        22.07        43.33        10.90
+Prigeon Dale R             393.20       511.51        92.07        23.02        40.10        12.74
+Benson Martyne             411.64       534.00        96.12        24.03        43.00        12.00
+Taylor Gregg               418.94       542.90        97.72        24.43        43.00        12.20
+Fitzgibbons Rusty          427.70       553.58        99.64        24.91        43.00        12.44
+Schulman David             428.61       554.70        99.85        24.96        42.00        12.90
+Raskin Rose                430.02       556.42       100.16        25.04        42.00        12.94
+Mulicka Al B               432.80       559.80       100.76        25.19        44.33        12.04
+Camden Warren              437.90       566.02       101.88        25.47        38.40        14.74
+Light Karen L              451.82       583.00       104.94        26.24        50.00        10.60
+Worthington Dan            464.42       598.37       107.71        26.93        50.10        10.84
+Leslie Bennie A            482.98       621.00       111.78        27.95        44.00        13.50
+Fagan Bert Todd            496.26       637.20       114.70        28.67        52.00        10.80
+Feistner Merle S           525.78       673.20       121.18        30.29        50.00        12.24
+Slaughter Lew              531.93       680.69       122.52        30.63        44.33        14.64
+Kenwood Pat                536.85       686.69       123.60        30.90        50.10        12.44
+Brandt Leslie              594.86       757.44       136.34        34.08        48.40        14.40
+Antrim Forrest N           766.67       966.96       174.05        43.51        62.00        12.24
+Hall Gus W                 968.28      1212.83       218.31        54.58        70.40        12.66
+Lloyd Jeanine D           5838.66      7152.32      1287.42       321.85       310.90        12.40
+Lee Phoebe                8505.94     10405.10      1872.92       468.23       410.75        13.40
+
+TOTALS                   25026.73     31320.41      5637.68      1409.40      1751.14       308.94
+
+The number of employees processed from the input file are: 25
+
+
+
+
+
+Written by Kyle L Frisbie

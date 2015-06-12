@@ -1,0 +1,510 @@
+-----
+Sorts beginning, N = 10,000
+   run #1
+      bubble sort
+         elapsed time = less than one second
+         comparisons = 49,986,872
+         swaps = 25,347,287
+         passes = 9,872
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         shifts = 25,347,287
+         passes = 10,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         swaps = 9,992
+         passes = 49,995,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 120,339
+         copies = 133,616
+         calls = 19,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 31,640
+         copies = 133,616
+         calls = 13,347
+      quick sort OK? yes
+      shaker sort
+         elapsed time = less than one second
+         comparisons = 38,138,985
+         swaps = 25,347,287
+         passes = 2,565
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = less than one second
+         comparisons = 34,525,974
+         swaps = 34,601,217
+         passes = 75,243
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = less than one second
+         comparisons = 31,975,359
+         swaps = 32,038,080
+         passes = 62,721
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #2
+      bubble sort
+         elapsed time = less than one second
+         comparisons = 49,990,629
+         swaps = 25,116,080
+         passes = 9,906
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         shifts = 25,116,080
+         passes = 10,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         swaps = 9,985
+         passes = 49,995,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 120,452
+         copies = 267,232
+         calls = 19,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 31,787
+         copies = 267,232
+         calls = 13,309
+      quick sort OK? yes
+      shaker sort
+         elapsed time = less than one second
+         comparisons = 37,597,290
+         swaps = 25,116,080
+         passes = 2,510
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = less than one second
+         comparisons = 34,216,570
+         swaps = 34,291,813
+         passes = 75,243
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = less than one second
+         comparisons = 31,690,670
+         swaps = 31,753,391
+         passes = 62,721
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #3
+      bubble sort
+         elapsed time = less than one second
+         comparisons = 49,994,334
+         swaps = 25,222,011
+         passes = 9,963
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         shifts = 25,222,011
+         passes = 10,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = less than one second
+         comparisons = 49,995,000
+         swaps = 9,984
+         passes = 49,995,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 120,450
+         copies = 400,848
+         calls = 19,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 32,050
+         copies = 400,848
+         calls = 13,325
+      quick sort OK? yes
+      shaker sort
+         elapsed time = less than one second
+         comparisons = 38,138,985
+         swaps = 25,222,011
+         passes = 2,565
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = less than one second
+         comparisons = 34,354,431
+         swaps = 34,429,674
+         passes = 75,243
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = less than one second
+         comparisons = 31,818,098
+         swaps = 31,880,819
+         passes = 62,721
+         calls = 1
+      Shell's sort (my) OK? yes
+-----
+Sorts beginning, N = 50,000
+   run #1
+      bubble sort
+         elapsed time = 5 seconds
+         comparisons = 1,249,921,044
+         swaps = 625,337,419
+         passes = 49,671
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 2 seconds
+         comparisons = 1,249,975,000
+         shifts = 625,337,419
+         passes = 50,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 1 second
+         comparisons = 1,249,975,000
+         swaps = 49,992
+         passes = 1,249,975,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 718,116
+         copies = 1,185,312
+         calls = 99,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 186,203
+         copies = 1,185,312
+         calls = 66,361
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 3 seconds
+         comparisons = 939,534,097
+         swaps = 625,337,419
+         passes = 12,541
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 1 second
+         comparisons = 852,819,274
+         swaps = 853,274,993
+         passes = 455,719
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 1 second
+         comparisons = 789,720,006
+         swaps = 790,090,882
+         passes = 370,876
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #2
+      bubble sort
+         elapsed time = 4 seconds
+         comparisons = 1,249,959,775
+         swaps = 624,131,488
+         passes = 49,825
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 2 seconds
+         comparisons = 1,249,975,000
+         shifts = 624,131,488
+         passes = 50,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 1 second
+         comparisons = 1,249,975,000
+         swaps = 49,989
+         passes = 1,249,975,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 718,326
+         copies = 1,969,776
+         calls = 99,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 184,116
+         copies = 1,969,776
+         calls = 66,715
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 3 seconds
+         comparisons = 936,586,870
+         swaps = 624,131,488
+         passes = 12,482
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 1 second
+         comparisons = 851,203,511
+         swaps = 851,659,230
+         passes = 455,719
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 1 second
+         comparisons = 788,230,835
+         swaps = 788,601,711
+         passes = 370,876
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #3
+      bubble sort
+         elapsed time = 4 seconds
+         comparisons = 1,249,815,105
+         swaps = 624,134,268
+         passes = 49,434
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 2 seconds
+         comparisons = 1,249,975,000
+         shifts = 624,134,268
+         passes = 50,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 1 second
+         comparisons = 1,249,975,000
+         swaps = 49,991
+         passes = 1,249,975,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 718,181
+         copies = 2,754,240
+         calls = 99,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 184,795
+         copies = 2,754,240
+         calls = 66,515
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 3 seconds
+         comparisons = 938,985,670
+         swaps = 624,134,268
+         passes = 12,530
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 1 second
+         comparisons = 851,227,755
+         swaps = 851,683,474
+         passes = 455,719
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 1 second
+         comparisons = 788,235,232
+         swaps = 788,606,108
+         passes = 370,876
+         calls = 1
+      Shell's sort (my) OK? yes
+-----
+Sorts beginning, N = 100,000
+   run #1
+      bubble sort
+         elapsed time = 20 seconds
+         comparisons = 4,999,829,705
+         swaps = 2,504,514,946
+         passes = 99,509
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 8 seconds
+         comparisons = 4,999,950,000
+         shifts = 2,504,514,946
+         passes = 100,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 6 seconds
+         comparisons = 4,999,950,000
+         swaps = 99,990
+         passes = 4,999,950,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 1,536,259
+         copies = 4,423,168
+         calls = 199,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 397,034
+         copies = 4,423,168
+         calls = 132,901
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 14 seconds
+         comparisons = 3,763,836,219
+         swaps = 2,504,514,946
+         passes = 25,139
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 5 seconds
+         comparisons = 3,416,261,775
+         swaps = 3,417,228,921
+         passes = 967,146
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 5 seconds
+         comparisons = 3,163,387,082
+         swaps = 3,164,170,577
+         passes = 783,495
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #2
+      bubble sort
+         elapsed time = 19 seconds
+         comparisons = 4,999,862,847
+         swaps = 2,497,536,230
+         passes = 99,582
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 8 seconds
+         comparisons = 4,999,950,000
+         shifts = 2,497,536,230
+         passes = 100,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 6 seconds
+         comparisons = 4,999,950,000
+         swaps = 99,987
+         passes = 4,999,950,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 1,536,259
+         copies = 6,092,096
+         calls = 199,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 391,961
+         copies = 6,092,096
+         calls = 132,613
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 13 seconds
+         comparisons = 3,752,873,289
+         swaps = 2,497,536,230
+         passes = 25,029
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 5 seconds
+         comparisons = 3,406,722,807
+         swaps = 3,407,689,953
+         passes = 967,146
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 4 seconds
+         comparisons = 3,154,565,224
+         swaps = 3,155,348,719
+         passes = 783,495
+         calls = 1
+      Shell's sort (my) OK? yes
+   run #3
+      bubble sort
+         elapsed time = 19 seconds
+         comparisons = 4,999,947,299
+         swaps = 2,512,423,756
+         passes = 99,926
+         calls = 1
+      bubble sort OK? yes
+*** other sorts' output here
+      insertion sort
+         elapsed time = 8 seconds
+         comparisons = 4,999,950,000
+         shifts = 2,512,423,756
+         passes = 100,000
+         calls = 1
+      insertion sort OK? yes
+      selection sort
+         elapsed time = 6 seconds
+         comparisons = 4,999,950,000
+         swaps = 99,991
+         passes = 4,999,950,000
+         calls = 1
+      selection sort OK? yes
+      merge sort
+         elapsed time = less than one second
+         comparisons = 1,536,390
+         copies = 7,761,024
+         calls = 199,999
+      merge sort OK? yes
+      quick sort
+         elapsed time = less than one second
+         comparisons = 391,379
+         copies = 7,761,024
+         calls = 132,709
+      quick sort OK? yes
+      shaker sort
+         elapsed time = 13 seconds
+         comparisons = 3,764,432,805
+         swaps = 2,512,423,756
+         passes = 25,145
+         calls = 1
+      shaker sort OK? yes
+      Shell's sort (good gap)
+         elapsed time = 5 seconds
+         comparisons = 3,427,026,628
+         swaps = 3,427,993,774
+         passes = 967,146
+         calls = 1
+      Shell's sort (good) OK? yes
+      Shell's sort (my gap)
+         elapsed time = 4 seconds
+         comparisons = 3,173,363,725
+         swaps = 3,174,147,220
+         passes = 783,495
+         calls = 1
+      Shell's sort (my) OK? yes

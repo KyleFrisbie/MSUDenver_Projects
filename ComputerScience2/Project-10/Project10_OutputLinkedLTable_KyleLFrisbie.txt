@@ -1,0 +1,72 @@
+Output from linked list hash table:
+
+Index	Name			Key		Hash
+0 >>	ant			110		0
+1 >>	cat			871		1
+2 >>	swan			302		2
+3	Null			Null		Null
+4 >>	kitten			554		4
+5	Null			Null		Null
+6 >>	owl			986		6
+7 >>	puppy			117		7
+>>	dog			27		7
+8	Null			Null		Null
+9	Null			Null		Null
+
+Delete key: 554
+Delete success: true
+Index	Name			Key		Hash
+0 >>	ant			110		0
+1 >>	cat			871		1
+2 >>	swan			302		2
+3	Null			Null		Null
+4	Null			Null		Null
+5	Null			Null		Null
+6 >>	owl			986		6
+7 >>	puppy			117		7
+>>	dog			27		7
+8	Null			Null		Null
+9	Null			Null		Null
+
+Delete key: 986
+Delete success: true
+Index	Name			Key		Hash
+0 >>	ant			110		0
+1 >>	cat			871		1
+2 >>	swan			302		2
+3	Null			Null		Null
+4	Null			Null		Null
+5	Null			Null		Null
+6	Null			Null		Null
+7 >>	puppy			117		7
+>>	dog			27		7
+8	Null			Null		Null
+9	Null			Null		Null
+
+Delete key: 27
+Delete success: true
+Index	Name			Key		Hash
+0 >>	ant			110		0
+1 >>	cat			871		1
+2 >>	swan			302		2
+3	Null			Null		Null
+4	Null			Null		Null
+5	Null			Null		Null
+6	Null			Null		Null
+7 >>	puppy			117		7
+8	Null			Null		Null
+9	Null			Null		Null
+
+Delete key: 302
+Delete success: true
+Index	Name			Key		Hash
+0 >>	ant			110		0
+1 >>	cat			871		1
+2	Null			Null		Null
+3	Null			Null		Null
+4	Null			Null		Null
+5	Null			Null		Null
+6	Null			Null		Null
+7 >>	puppy			117		7
+8	Null			Null		Null
+9	Null			Null		Null

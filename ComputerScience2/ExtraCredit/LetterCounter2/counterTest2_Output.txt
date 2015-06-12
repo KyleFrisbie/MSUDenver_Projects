@@ -1,0 +1,31 @@
+Total word and letter count from : counterTest2.txt
+Author: Kyle L Frisbie
+Word Count             Letter Count   
+wxyz:              1 |  a:     1  |
+abcde:             1 |  b:     1  |
+                     |  c:     1  |
+                     |  d:     1  |
+                     |  e:     1  |
+                     |  f:     0  |
+                     |  g:     0  |
+                     |  h:     0  |
+                     |  i:     0  |
+                     |  j:     0  |
+                     |  k:     0  |
+                     |  l:     0  |
+                     |  m:     0  |
+                     |  n:     0  |
+                     |  o:     0  |
+                     |  p:     0  |
+                     |  q:     0  |
+                     |  r:     0  |
+                     |  s:     0  |
+                     |  t:     0  |
+                     |  u:     0  |
+                     |  v:     0  |
+                     |  w:     1  |
+                     |  x:     1  |
+                     |  y:     1  |
+                     |  z:     1  |
+Total words: 2
+Total letters: 9

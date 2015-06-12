@@ -1,0 +1,63 @@
+// Triangle Area Calculator With JOptionPane
+// 	This program prompts the user to input the length of the three sides of any
+//		given triangle in order to calculate its perimeter and area and prints the
+//		results using JOptionPane.
+// Kyle L Frisbie
+// Program #3, CS 1050, Section 2 
+// Version of Java: 1.7.0, IDE: jGRASP 1.8.8_12, computer and operating system:
+// Dell Optiplex 960 with Windows 7
+// Hubris: overbearing pride or presumption
+// "Every man has three characters-that which he exhibits, that which he has,
+// and that which he thinks he has." -Alphonse Karr, quotationspage.com,
+// 1808-1890
+
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+import java.util.*;
+
+public class KyleLFrisbie_2_03 {
+	
+   public static void main (String[] args)throws Exception {
+   	
+		//Defineing variables
+   	double a, b, c;   		// Lengths of sides of triangle
+   	double perimeter;  		// Perimeter of triangle
+		double s; 					// 1/2 of the perimeter length
+  		double area; 				// Area of triangle
+		String inputStr;			// Length of triangle sides as input by user
+		StringTokenizer st;		// Breaks input string (lengths of triangle) into
+										//		separate tokens for later calculation
+		
+		// Create a DecimalFormat object
+		DecimalFormat formatter = new DecimalFormat("#0.00");
+      DecimalFormat formatterTwo = new DecimalFormat("#0.0");
+         
+      // Input lengths of sides of triangle
+		inputStr = JOptionPane.showInputDialog("Enter the length of the sides of a "
+			+ "triangle seperated by spaces");
+		st = new StringTokenizer(inputStr);
+		a = Double.parseDouble(st.nextToken());
+		b = Double.parseDouble(st.nextToken());
+		c = Double.parseDouble(st.nextToken());
+		
+      
+      // Calculate the perimeter of the triangle as well as s
+      perimeter = a + b + c;		// The length of the perimeter is
+											// 	equal to the sum of all sides
+      s = 0.5 * perimeter;  		// s is equal to the semiperemeter (1/2 of the
+                                 //    perimeter length)
+      
+      // Calculate the area of the triangle
+      area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+      
+      // Output the results
+      JOptionPane.showMessageDialog(null, "The lengths of the sides of the triangle "
+         + "are: " + formatter.format(a) + ", " + formatter.format(b)
+			+ ", and " + formatter.format(c) + ". \n"
+			+ "The perimeter of the triangle is: " + formatterTwo.format(perimeter) + "\n"
+			+ "The area of the triangle is: " + formatterTwo.format(area) + "\n" + "\n"
+			+ "Kyle L Frisbie");
+
+      System.exit(0);
+   } // End main
+} // End class

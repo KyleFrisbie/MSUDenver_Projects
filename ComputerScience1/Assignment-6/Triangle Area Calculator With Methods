@@ -1,0 +1,81 @@
+/* Triangle Area Calculator With Methods and Seperate Class File
+	   This program prompts the user to input the length of the three sides of any
+		given triangle in order to calculate its perimeter and area, and prints the
+		results.
+		It uses the class KyleLFrisbie_2_06_Triangle to hold the numbers.
+      
+   Kyle L Frisbie
+   Program #6, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+	
+	Methods used:
+		displayProgramPurpose() - explains purpose of program to user
+		outputResults(KyleLFrisbie_2_06_Triangle lengthOfSides, double perim, double
+			ar) - outputs the length of all sides of a triangle and the perimeter and
+			area of	the triangle.
+	Class methods used:
+		getLengthSides() - get values for the length of the sides of a triangle from
+			user
+		getPerimeter() - return the perimeter of the triangle
+		getArea() - return the area of the triangle
+		outputSides() - outputs the length of the sides and a message
+*/
+
+import java.text.DecimalFormat;
+
+public class KyleLFrisbie_2_06 {
+   
+	public static void main(String[] args) throws Exception {
+			
+		KyleLFrisbie_2_06_Triangle theLengthOfSides =
+			new KyleLFrisbie_2_06_Triangle();
+		
+		// Declare variables
+
+      double perimeter;                   // Perimeter = sum of the sides
+      double area;                        // Area = calculated using Heron's
+														// 	formula
+				      
+      // Display program funcions to user
+		
+      displayProgramPurpose();
+		
+		// Input the length of each side of the triangle
+		
+		theLengthOfSides.getLengthSides();
+		
+		// Calculate the perimeter of the triangle
+		
+		perimeter = theLengthOfSides.getPerimeter();
+		
+		// Calculate the area of the triangle
+		
+		area = theLengthOfSides.getArea();
+		
+		// Output the results
+		
+		outputResults(theLengthOfSides, perimeter, area);
+	}
+   
+      
+   // Method calling output with explanation of program functions  
+   public static void displayProgramPurpose() {
+      System.out.println("This program calculates the area of a triangle, with"
+                         + "three\nreal numbers representing the length of"
+                         + "each side of a\ntriangle as its inputs (using "
+								 + "methods and a seperate class\nflie).\n\nWritten"
+								 + "by: Kyle L Frisbie \n");
+   }
+
+   // Output program results
+   public static void outputResults(KyleLFrisbie_2_06_Triangle lengthOfSides,
+												double perim, double ar) {
+		//Create Decimal Formatter
+		DecimalFormat formatter = new DecimalFormat("#0.0");
+		
+      lengthOfSides.outputSides();
+      System.out.println("\nThe perimeter = " + perim + "\n" +
+                         "The area = " + formatter.format(ar) + "\n" +
+                         "\nKyle L Frisbie");
+   }
+}

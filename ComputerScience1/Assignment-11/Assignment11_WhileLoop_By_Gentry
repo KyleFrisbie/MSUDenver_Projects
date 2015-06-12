@@ -1,0 +1,26 @@
+		/*while (input.hasNextLine() && count < name.length) {
+			String line = input.nextLine().trim();
+			String[] splitLine = line.split(chSplit);
+			String[] nameArray;
+			if (splitLine.length == 4) {
+				nameArray = new String[2];
+				nameArray[0] = splitLine[0];
+				nameArray[1] = splitLine[1];
+				ratePay[count][0] = Double.parseDouble(splitLine[2]);
+				ratePay[count][1] = Double.parseDouble(splitLine[3]);
+			} else if (splitLine.length == 5) {
+				nameArray = new String[3];
+				nameArray[0] = splitLine[0];
+				nameArray[1] = splitLine[1];
+				nameArray[2] = splitLine[2];
+				ratePay[count][0] = Double.parseDouble(splitLine[3]);
+				ratePay[count][1] = Double.parseDouble(splitLine[4]);
+			} else {
+				throw new IllegalStateException("Please check your input file for"
+														  + " proper formatting");
+			}
+			// Call method to join separate parts of employee's name into one array
+			// 	element
+			name[count] = joinStringArray(nameArray, " ");
+			count++;
+		} */

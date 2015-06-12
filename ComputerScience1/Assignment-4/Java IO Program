@@ -1,0 +1,78 @@
+/* Java I/O Program
+      This program uses the Java input/output function on files. It takes an
+      input .txt file with ten numbers (integers and real numbers, possibly
+      more than one number to a line), and analyzes the file, keeping a running
+      total of the numbers. It will then produce an output file with the
+      original data values (one to a line) plus three additional lines that
+      include: number of numbers read, the sum of all numbers, and the average
+      of all numbers.
+   Kyle L Frisbie
+   Program #4, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.util.Scanner;
+import java.io.*;
+import java.text.DecimalFormat;
+
+public class KyleLFrisbie_2_04 {
+
+	public static void main(String[] args) throws IOException {
+      
+      // Declare variables
+		int numberOfNumbers = 0; // Number of numbers in the input file
+		double sum = 0;		 	 // The sum of the numbers
+      double average = 0;      // The average of the numbers read
+		double oneNumber;			 // An individual number read from the file
+               
+      // Create Decimal Formatter      
+      DecimalFormat formatter = new DecimalFormat("#0.000");
+      
+		// Define your file names, input and output.
+		final String INPUT_FILE  = "KyleLFrisbie_2_04_Input.txt";
+		final String OUTPUT_FILE = "KyleLFrisbie_2_04_Output.txt";
+      		
+		// Access the input/output files
+		File inputDataFile = new File(INPUT_FILE);
+		Scanner inputFile  = new Scanner(inputDataFile);
+		FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+		PrintWriter outputFile = new PrintWriter(outputDataFile);
+      System.out.println("Reading  file " + INPUT_FILE + "\r\n" +
+		                   "Creating file " + OUTPUT_FILE + "\n");
+      outputFile.println("Input" + "\t\t" + "Running Sum" + "\n");
+      System.out.println("Input" + "\t\t" + "Running Sum" + "\n");
+		
+		// Read the input file and sum the numbers. 		
+		while (inputFile.hasNext()) {
+				numberOfNumbers++;
+				oneNumber = inputFile.nextDouble();
+            sum += oneNumber;
+            outputFile.print(formatter.format(oneNumber) // Outputs last number
+                             + "\t\t");                  //    read to file
+            System.out.print(formatter.format(oneNumber) // Outputs last number
+                             + "\t\t");                  //    read to console
+            outputFile.println(formatter.format(sum));   // Outputs running total
+                                                         //    to file
+            System.out.println(formatter.format(sum));   // Outputs running total
+                                                         //    to console
+			} // End while
+      
+      // Write final numbers to output file
+		outputFile.println("The total number of numbers in the file are: "
+                         + numberOfNumbers);
+      outputFile.println("The sum of the numbers is: " + formatter.format(sum));
+      average = sum / numberOfNumbers;
+      outputFile.println("The average of all numbers is: "
+                         + formatter.format(average));
+      
+      // Output final numbers to console
+		System.out.println("\n" + "The sum of the " + numberOfNumbers + 
+								 " numbers is " + formatter.format(sum) + "\n" +
+                         "and the average is " + formatter.format(average) +
+                         "\n \n Kyle L Frisbie");
+		
+      inputFile.close(); // Close input file
+      outputFile.close(); // Close output file						 
+		System.exit(0);	
+	} // End main
+} // End class

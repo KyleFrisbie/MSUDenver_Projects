@@ -1,0 +1,35 @@
+CS 1050, Mr. Kramer                 Programming Assignment #9           	# points: 70
+
+Purpose	Calculate mileage reimbursements using arrays.
+
+Due Date	Per the Course at a Glance. Cannot be resubmitted.
+
+Submissions	In this order: printed copies of the source code with line numbers, the input file, and the output file.
+
+Java Topics	Arrays, Java I/O, while loops, if-else-if, methods, summing/averaging data.
+		Use of leftPad in the Toolkit_General class.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+		The programming standards and guidelines as discussed in class.
+		Toolkit_General.java
+
+Specification	
+
+Convert Assignment #7 to a program that uses arrays. You will use two parallel one-dimensional arrays of length n, where n is the number of mileage values to process. Note that n is determined by reading the first entry in the input file which has the number of entries that follow. 
+
+One array will hold the mileage and the other the corresponding reimbursement amount.  Use the same input file as for Program Assignment #7 but rename it to this assignment number. Your program must satisfy the requirements of Program Assignment #7, plus the items below. The main program should be mostly (but not necessarily only) method calls.
+
+1.	A method that explains the program to the user.
+
+2.	A method reads the mileage values and stores them in the appropriate array. (Use a ‘for’ loop that includes a test for the end of file and the number of elements allocated to the array.) This method doesn’t calculate the reimbursement; it only reads the data. From this method, determine the number of elements in the array.
+
+3.	A method with the two arrays as parameters calculates the array of reimbursement amounts.  A ‘for’ loop must be used for the calculations.  If the mileage value is negative or 0, the corresponding amount should be zero.
+
+4.	A method prints the detail lines in the table.  It will have the two arrays as parameters. Use a ‘for’ loop.  Detail lines are as specified in Program #7.
+
+	Each detail line of the table contains the number of miles (real, print with one decimal place) and the reimbursement amount (real, print with two decimal places).  If the input value is <= 0, output five stars instead of the reimbursement amount. As in #7, use the leftPad method to format the numbers to one or two decimal places as needed.
+
+5.	After the array of reimbursements has been calculated, a method or methods calculate the average reimbursement and the average number of miles traveled. A ‘for’ loop must be used in doing the calculations. These averages will be the averages for mileage values which are > 0. In other words, you might divide by a number less than the number of elements (which, by the way, could be 0, so check for it before you calculate the average).
+
+6.	A method outputs the summary information at the end of the table.  This output should include all the output specified in Program Assignment #7 (the total of the reimbursement values, the number of mileage values processed, and the number of mileage values that were > 0). In addition, output the total of the mileage values that were > 0, the number of mileage values that were > 0 (all with appropriate messages).
+

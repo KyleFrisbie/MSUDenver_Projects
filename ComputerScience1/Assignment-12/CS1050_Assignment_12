@@ -1,0 +1,35 @@
+CS 1050, Mr. Kramer    			Programming Assignment #12       	             # of points: 60
+
+Purpose: calculate GPA using ArrayLists.
+Due date is per the Course at a Glance. Cannot be redone.
+
+Write a Java program to read from a file and write to a file. Use an ArrayList to store the data. (See Sec 7.13, textbook page 476.) Use a class to store the name, a real number which is the Grade Point Average (GPA)of  the student as specified below, and an integer (the total number of credit hours that have been passed by the student -- passed means the grade was an A, B, C, D, or F).
+
+Each line of data will contain the name of a student followed by a # and then by unknown number of pairs of the form a blank, an integer (representing number of credits) followed by a blank and then a character (representing the grade) and after all the pairs a #.  Do not assume that there is at least one pair on a line. For example, there could be a line with only  “#   #”.
+Do NOT store the pairs anywhere in the program; process them fully as you encounter them.
+
+Use a switch statement when calculating the GPA (a real number) for a student -- assume an A is 4 points, a B is 3, C is 2, D is 1 and F is 0; if the pair contains any other character value, the pair should not be processed. Do not assume that a line contains at least one pair with a grade of A, B, C, D, or F -- if there are no such pairs, then the GPA should be 0.
+
+Include an echo of the data to the output file (write data out as it is read).  After the data is all input, write to the output file a table with headings giving the student names, GPAs, and the number of hours passed.  At the end of the table, print the number of students, the average GPA, and the total of the hours passed.  The code to print the table should be in a method.
+
+The main body of the program should consist only of method calls either within the main program or to the class. Use appropriate methods and appropriate parameters.  Do not use global variables.  Hand in printed copies of your data file, the source code, the input and the output. File names are:
+
+YourName_2_12.java		The main program
+YourName_2_12_Gpa.java	The class file containing GPA information
+YourName_2_12_Input.txt	The input file (data below)
+YourName_2_12_Output.txt	The output file
+
+The data to use is below:
+
+Van Zell David       # 4 A 4 B #
+Toole Nancy          # 3 X 3 B 5 A 4 A #
+Tucker Henry         # 5 A 3 F 2 U 4 F #
+Van Zell Sally       # 4 C 6 B #
+Tucker Becky         # 4 A 3 A 2 A 5 A 3 A #
+Stratton Charles     # 2 S 2 D 5 B 4 D 1 C #
+Toole Charles        # 4 U #
+Nulle, Nellie        # #
+Thomas William       # 4 B 5 A 2 D 3 B #
+
+Note: Use the ‘split’ method to parse each input line.
+

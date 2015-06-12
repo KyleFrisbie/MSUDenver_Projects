@@ -1,0 +1,73 @@
+/*	Program: Primes
+ * 		This program prompts the user to set an upper limit using JOption pane.
+ * 		The program will then generate a list of prime numbers up to the upper
+ * 		limit and display them to the user in JOption pane.
+ * 
+ * 	Author: Kyle L Frisbie	Date: 24 August 2014	Course: CS2 Fall 2014: Noon 
+ * 
+ * 	Limitations:
+ * 		This program does not check to make sure the user input a valid
+ * 		integer, it just assumes appropriate input.
+ */  
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+public class Primes {
+	
+	private  int upperLimit;					// Hold user defined upper
+												//	limit
+	private  ArrayList<Integer> primeArray =	// Array of prime numbers
+			new ArrayList<Integer>();			// 	calculated by the program
+	
+	public static void main(String[] args) {
+		Primes primes = new Primes();
+		primes.inputUpperLimit();
+		primes.createPrimeAry();
+		primes.displayResults();
+	} // End main
+	
+/*******************************************************************************/
+	public void inputUpperLimit() {
+//      System.out.println("In inputUpperLimit method.");
+		do {
+		upperLimit = Integer.parseInt(
+				JOptionPane.showInputDialog("Please enter an integer for the "
+						+ "upper limit of a list of primes you\nwould like to "
+						+ "create (must be greater than or equal to 2):"));
+		} while(upperLimit < 2);
+	} // End inputUpperLimit
+
+/*******************************************************************************/
+	public void createPrimeAry() {
+//      System.out.println("In createPrimeAry method.");
+		int counter = 3;	// To hold value to be tested for prime
+		boolean isPrime;	// Will remain true if counter is indivisible
+							// 	by all indexes in primeArray
+		primeArray.add(2);
+		
+		while(counter <= upperLimit) {
+			isPrime = true;
+			for(int i = 0; i < primeArray.size(); i++) {
+				if((counter % primeArray.get(i)) == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if(isPrime) {
+				primeArray.add(counter);
+			}
+			counter++;
+		}
+	} // End createPrimeAry
+
+/*******************************************************************************/
+	public void displayResults() {
+//      System.out.println("In displayResults method.");
+		JOptionPane.showMessageDialog(null, "Primes report by Kyle L Frisbie"
+									+ "\nUpper Limit: " + upperLimit
+									+ "\nPrimes: " + primeArray);
+	} // End displayResults
+} // End Primes class
+
+

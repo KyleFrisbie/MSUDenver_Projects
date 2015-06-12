@@ -1,0 +1,289 @@
+/* Assignment #11 with Extra Credit
+		This program takes an input file filled with multiple lines of information.
+		Each line has an employee name, the number of hours worked, and their pay
+		rate. This program takes the input information, seperates it into two
+		seperate parallel arrays, one array to hold employee names (empNames) and
+		another to hold hours worked and pay rate (rateAndPay). In addition to
+		holding hours and pay, rateAndPay will also be filled with additional
+		columns of information calculated from hours and pay by the program: gross
+		pay, net pay, federal tax, and state tax. After the arrays have been filled
+		with information, the program will write the information from each array in
+		a table within a new output file, with the same order of employees as the
+		original input file. The program will also write a summary after the table
+		which includes totals for each column in the table as well as the number of
+		employees processed from the input file. The program will then alphabatize
+		the empName array (becaues rateAndPay array is parallel to empNames, the
+		values within rateAndPay will change with respect to the change in
+		empNames) and reprint the newly organized information to the output file.
+		The program will finally reorganize the arrays again by gross pay (in
+		ascending order) and reprint the information table to the output file.
+      
+   Kyle L Frisbie
+   Program #11 w/ EC, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class KyleLFrisbie_2_11 {
+
+	static Toolkit_General tools = new Toolkit_General(); 
+	
+	// Set tax rates, global constants
+	public static double federalTax = 0.18; //	federal tax rate  (18%)
+	public static double stateTax = 0.045; //	state tax rate  (4.5%)
+
+	public static void main(String[] args) throws IOException {
+
+		// Declare variables
+		double[][] rateAndPay =		// 2 dimensional array of six values/row (hours
+				new double[30][6];	// 	worked, pay rate, gross pay, net pay,
+											// 	federal withholding, state withholding
+											// 	respectively) parallel to empNames array
+		String[] empNames = 			// Array with employee names, from input file
+				new String[30];
+		int[] resultCount =			// Array to hold number of names set to array
+				new int[2];				//		(resultCount[0]), and number of names in
+											//		input file (resultCount[1])
+		final String SPLIT_CHAR =	// Character used to split input line into
+				"\\s+";					// 	tokens
+		
+		// Define file names, input and output:
+		final String INPUT_FILE = "KyleLFrisbie_2_11_Input.txt";
+		final String OUTPUT_FILE = "KyleLFrisbie_2_11_Output.txt";
+
+		// Access the input/output files
+		File inputDataFile = new File(INPUT_FILE);
+		Scanner inputFile = new Scanner(inputDataFile);
+
+		FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+		PrintWriter outputFile = new PrintWriter(outputDataFile);
+
+		System.out.println("Reading file " + INPUT_FILE + "\r\n"
+				+ "Creating file " + OUTPUT_FILE + "\n");
+
+		// Call method to split each line of input file into separate
+		// 	parts and assign each part to empName and rateAndPay arrays
+		setEmpName(inputFile, empNames, rateAndPay, resultCount, SPLIT_CHAR);
+		int namesInArray = resultCount[0];
+		int namesInFile = resultCount[1];
+		
+		// Call method to calculate gross pay and assign  to rateAndPay[i][2]
+		calcGrossPay(rateAndPay);
+		
+		// Call method to calculate federal and state tax withholding and assign to
+		// 	rateAndPay[i][4] (federal) and rateAndPay[i][5] (state)
+		calcTax(rateAndPay);
+		
+		// Call method to calculate net pay and assign to rateAndPay[i][3]
+		calcNetPay(rateAndPay);
+		
+		// Call method to generate output file with final report
+		createReport(outputFile, empNames, rateAndPay, namesInArray, namesInFile);
+		
+		// Sort arrays alphabetically by employee name using Toolkit_General
+		tools.selectionSortStringWithNumbers(empNames, rateAndPay,
+														 namesInArray, -1);
+		
+		// Call method to print alphabetically sorted arrays
+		outputFile.println("Resorted alphabetically:\n");
+		createReport(outputFile, empNames, rateAndPay, namesInArray, namesInFile);
+		
+		// Sort arrays by gross pay in ascending order using Toolkit_General
+		tools.selectionSortStringWithNumbers(empNames, rateAndPay,
+														 namesInArray, 2);
+		
+		// Call method to print arrays sorted by gross pay in ascending order
+		outputFile.println("Resorted by gross pay in ascending order:\n");
+		createReport(outputFile, empNames, rateAndPay, namesInArray, namesInFile);
+		
+		// Call method to print my name at end of file
+		printName(outputFile);
+		
+		inputFile.close();
+		outputFile.close();
+		System.exit(0);
+	}
+
+/*****************************************************************************/
+	// Method to split each line of input file into separate parts
+	// 	and assign each part to empName array
+	private static void setEmpName(Scanner input, String[] name,
+			double[][] ratePay, int[] result, String chSplit) {
+		int count = 0;			// Counts number of names that fit in array
+		int totalCount = 0;	//	Counts number of names that are in input file
+	
+		while (input.hasNextLine() && count < name.length) {
+		
+			String line = input.nextLine().trim();
+			String[] splitLine = line.split(chSplit);
+			int len = splitLine.length;
+			String[] nameArray = new String[len - 2];
+		
+			ratePay[count][0] = Double.parseDouble(splitLine[len - 2]);
+			ratePay[count][1] = Double.parseDouble(splitLine[len - 1]);
+		
+		for (int i = 0; i < len - 2 ; i++) {
+			nameArray[i] = splitLine[i]; 
+		}
+		
+		name[count] = joinStringArray(nameArray, " ");
+		count++;
+		}
+		
+		totalCount = count;
+		
+		while (input.hasNextLine()) {
+			input.nextLine();
+			totalCount++;
+		}
+		
+		if (totalCount > name.length) {
+			System.out.println("Input file contains more values than is valid,"
+									 + "\nplease be sure the input file has less than"
+									 + "\nor equal to 30 employees to process.");
+			System.exit(0); // Exit program
+		}
+		
+		result[0] = count;
+		result[1] = totalCount;
+	}
+
+/*****************************************************************************/	
+	// Method to join separate parts of employee's name into one array
+	// 	element
+	private static String joinStringArray(String[] namePieces,
+			String joinDelimeter) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < namePieces.length; i++) {
+			sb.append(namePieces[i]);
+			sb.append(joinDelimeter);
+		}
+		return sb.toString().trim();
+	}
+
+/*****************************************************************************/	
+	// Method to calculate gross pay and assign  to rateAndPay[2]
+	private static void calcGrossPay(double[][] rAndP) {
+		for(int i = 0; i < rAndP.length; i++) {
+			double hours = rAndP[i][0];	// Index value which holds hours worked
+			double wage = rAndP[i][1];	// Index value which holds pay rate
+			double grossPay = 0;		// To hold calculated gross pay
+			if (hours <= 40) {
+				grossPay = wage * hours;
+			} else if (hours <= 50) {
+				grossPay = wage * (40 + ((hours - 40) * 1.5));
+			} else {
+				grossPay = wage * ((40 + (10 * 1.5))
+							+ ((hours - 50) * 2.0));
+			}
+			rAndP[i][2] = tools.roundNumber(grossPay, 2);
+		}
+	}
+
+/*****************************************************************************/	
+	// Method to calculate federal and state tax withholding and assign to
+	// 	rateAndPay[i][4] (federal) and rateAndPay[i][5] (state)
+	private static void calcTax(double[][] rateAry) {
+		for (int i = 0; i < rateAry.length; i++) {
+			double grossPay = rateAry[i][2];
+			double fedTax = grossPay * federalTax;
+			double statTax = grossPay * stateTax;
+			rateAry[i][4] = tools.roundNumber(fedTax, 2);
+			rateAry[i][5] = tools.roundNumber(statTax, 2);
+		}
+	}
+
+/*****************************************************************************/	
+	// Method to calculate net pay and assign to rateAndPay[i][3]
+	private static void calcNetPay(double[][] rapAry) {
+		for (int i = 0; i < rapAry.length; i++) {
+			double grossPay = rapAry[i][2];
+			double fedWithold = rapAry[i][4];
+			double staWithold = rapAry[1][5];
+			double netPay = grossPay - fedWithold - staWithold;
+			rapAry[i][3] = tools.roundNumber(netPay, 2);
+		}
+	}
+
+/*****************************************************************************/	
+	// Method to generate output file with final report
+	private static void createReport(PrintWriter fileOut, String[] names,
+			  									double[][] ratePay, int namesInArray,
+												int namesInFile) {
+		// Call method to print heading
+		printHeading(fileOut);
+		
+		// Call method to print detail lines for employees
+		printTable(fileOut, names, ratePay, namesInArray);
+		
+		// Call method to print summary
+		printSummary(fileOut, ratePay, namesInArray);
+	}
+
+/*****************************************************************************/
+	// Method to print heading
+	private static void printHeading(PrintWriter header) {
+		header.println(tools.padString("Fabulous Furniture Company", 54, " ", ""));
+		header.println(tools.padString("Payroll Report", 47, " ", "") + "\n");
+		header.println(tools.padString("Employee Name", 20, "", " ")
+							+ tools.padString("Net Pay", 13, " ", "")
+							+ tools.padString("Gross Pay", 13, " ", "")
+							+ tools.padString("Federal Tax", 13, " ", "")
+							+ tools.padString("State Tax", 13, " ", "")
+							+ tools.padString("Hours", 13, " ", "")
+							+ tools.padString("Pay Rate", 13, " ", ""));
+	}
+
+/*****************************************************************************/	
+	// Method to print detail lines for employees
+	private static void printTable(PrintWriter table, String[] empName,
+									double[][] ratePayAry, int count) {
+		for(int i = 0; i < count; i++) {
+			table.println(tools.padString(empName[i], 20, "", " ")
+							  + tools.leftPad(ratePayAry[i][3], 13, "#0.00", " ")
+					    	  + tools.leftPad(ratePayAry[i][2], 13, "#0.00", " ")
+							  + tools.leftPad(ratePayAry[i][4], 13, "#0.00", " ")
+					    	  + tools.leftPad(ratePayAry[i][5], 13, "#0.00", " ")
+							  + tools.leftPad(ratePayAry[i][0], 13, "#0.00", " ")
+					    	  + tools.leftPad(ratePayAry[i][1], 13, "#0.00", " "));
+		}
+	}
+
+/*****************************************************************************/	
+	// Method to print summary
+	private static void printSummary(PrintWriter summary, double[][] rAndP,
+									 			int count) {
+		double totalHours = 0;
+		double totalPayRate = 0;
+		double totalGrossPay = 0;
+		double totalNetPay = 0;
+		double totalFedHold = 0;
+		double totalStateHold = 0;
+		
+		for(int i = 0; i < count; i++) {
+			totalHours += rAndP[i][0];
+			totalPayRate += rAndP[i][1];
+			totalGrossPay += rAndP[i][2];
+			totalNetPay += rAndP[i][3];
+			totalFedHold += rAndP[i][4];
+			totalStateHold += rAndP[i][5];
+		}
+		summary.println("\n" + tools.padString("TOTALS", 20, "", " ")
+							 + tools.leftPad(totalNetPay, 13, "#0.00", " ")
+							 + tools.leftPad(totalGrossPay, 13, "#0.00", " ")
+							 + tools.leftPad(totalFedHold, 13, "#0.00", " ")
+							 + tools.leftPad(totalStateHold, 13, "#0.00", " ")
+							 + tools.leftPad(totalHours, 13, "#0.00", " ")
+							 + tools.leftPad(totalPayRate, 13, "#0.00", " "));
+		summary.println("\nThe number of employees processed from the input file "
+						+ "are: " + count + "\n\n\n\n");
+	}
+	
+/*****************************************************************************/
+	// Method to print my name
+	private static void printName(PrintWriter name) {
+		name.println("\nWritten by Kyle L Frisbie");
+	}
+}

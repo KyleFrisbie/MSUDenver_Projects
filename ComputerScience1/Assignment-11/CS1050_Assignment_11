@@ -1,0 +1,101 @@
+CS 1050, Mr. Kramer     		Programming Assignment #11	       # points: 120 
+
+Purpose		Learn and use two-dimensional arrays.
+
+Due Date		Per the Course at a Glance. Cannot be resubmitted.
+
+Submissions	In this order: printed copies of the source code with line numbers, and the output file. (The input file, named CS1050_Assignment_11_Input.txt, is supplied and you do not have to create it or turn it in.)
+
+Java Topics	Two-dimensional arrays, partial array sorting, loops.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+				The programming standards and guidelines as discussed in class.
+				SelectionSortTwoArrays.java	under Blackboard | Assignments
+
+Specification	
+
+1.	Assume that a company has at most 30 employees.  Your program should handle the situation if there are more than 30 rows of data by letting the user know, then terminating the program.
+
+2.	Use two parallel arrays. One is a two-dimensional array -- a row of this array will hold six values in this order: [0] number of hours worked, [1] hourly pay rate, [2] gross pay, [3] net pay, [4] federal withholding, and [5] state withholding.
+
+	The second array is a one-dimensional array of Strings holding the names of the employees.  The payroll-information for the i-th name from the array of Strings will be in the i-th row of the two-dimensional array.
+
+3.	This program reads from a file and writes to a file. Data: Each line contains the number of hours worked, the pay rate (both real numbers), followed by the name. One or more spaces separate the fields. Use the Tokenizer or the split method as you see fit.
+
+4.	Gross pay is calculated as follows:
+
+	hours ≤ 40.0			Paid at the pay rate.
+
+	40.0 < hours ≤ 50.0	hours > 40.0 and less ≤ 50.0 are paid at one and a half times the rate. The first 40 hours are paid at the pay rate.
+
+	50.0 < hours			hours > 50.0 are paid at twice the pay rate. The first 40 hours are paid at the pay rate. Hours 40 to 50 are paid at time and a half.
+
+	For example, with a pay rate is $10.00 an hour, gross pay is calculated as follows:
+
+	# Hours	Gross Pay									
+   		30		30 x $10 = $300
+   		40		40 x $10 = $400
+   		46		40 x $10 + ( (46-40) x $10 x 1.5 ) = $400 + (6 x $15) = $490
+   		50		40 x $10 + ( (50-40) x $10 x 1.5 ) = $400 + (10 x $15) = $400 + $150 = $550
+   		58		40 x $10 + ( (50-40) x $10 x 1.5) + ( (58-50) x $10 x 2) = $400 + $150 + $160
+					= $710
+
+	Note how the pay rate ($10 in the example above) can be factored out, which you should do in the program. For example, the reimbursement for 46 hours is 
+		$10 x (40 + (46-40) x 1.5) = $10 x (40 + (6 x 1.5)) = $10 x (40 + 9) = $490
+	Do you see why?
+
+5.	The Federal withholding tax rate is 18% and the state withholding tax rate is 4.5%. Use constants for these and for the 30 employees. These may be global constants – declared as “public static” before the main method.
+
+	Use a method to calculate federal withholding and round the answer to the nearest hundredth.  Use the ‘roundNumber’ method in Toolkit_General. Do state withholding the same way. 
+
+6.	Use a method to create a report -- this method will be called after all input and all calculations are done and will call the three methods specified below.
+
+	a.	A method to print heading information including:  
+
+Fabulous Furniture Company
+Payroll Report
+
+		and column headings for the name, net pay, gross pay, federal tax, state tax, hours, and pay rate, in that order.
+
+	b.	A method to print the detail lines for the employees, matching the headings indicated in a.  Single space the detail lines.
+
+	c.	A method to print a summary line with the totals for net pay, gross pay, federal tax withholding, and state tax withholding. (The line should have totals at the bottom of the appropriate columns.) Also, print a line with a message that contains the number of employees processed which could be less than 30.
+
+7.	After the report has been printed, sort the employees alphabetically and print out the report again with the same print method.  The sort used should be based on the selection sort located in Toolkit_General.
+
+
+	Next, sort the employees in descending order by gross pay and print out the report again.  (Again, modify the selection sort in Toolkit_General.) The method specified above should be used to print out the report. Remember to call the heading method to print a new heading.
+
+8.	The main program should consist mostly of method calls. Use one file for all the source code (i.e., no classes).  Use appropriate parameter passing and no non-local variables other than the constants specified above.
+
+9.	The Data. The input file format is the number of hours (double), the pay rate (double) and a name (which may or may not have an initial). Spaces separate the fields. The file has been uploaded and is named CS1050_Assignment_11_Input.txt. Remember to trim the name once you’ve extracted it from the input file. The String method name is ‘trim’.
+
+41.00  11.74  Hancock John 
+50.00  10.60 Light Karen L       
+52.00  10.80    Fagan Bert Todd     
+62.00  12.24  Antrim Forrest N    
+38.40  14.74 Camden Warren       
+   44.33  12.04   Mulicka Al B 
+41.75       13.40        Lee Phoebe  
+24.00  11.40   Bright Harry 
+41.00  10.40   Garris Ted  
+      43.00  12.00  Benson Martyne
+     31.90  12.40 Lloyd Jeanine D
+     44.00  13.50     Leslie Bennie A
+       48.40  14.40 Brandt Leslie
+      42.00  12.90     Schulman David
+     50.10  10.84                     Worthington Dan
+70.40  12.66 Hall Gus W  
+40.10  12.74  Prigeon Dale R      
+43.00  12.44             Fitzgibbons Rusty   
+    50.00  12.24    Feistner Merle S
+    23.00  12.34   Hallquist Dottie
+ 43.33  10.90   Bolton Seth
+43.00  12.20  Taylor Gregg 
+ 42.00  12.94                        Raskin Rose            
+50.10  12.44  Kenwood Pat
+    44.33  14.64 Slaughter Lew
+
+Extra credit: 8 points
+
+Use an input file with the names appearing before the two numbers and parse the input per our discussions in class using the Tokenizer or the ‘split’ method. If you do this, add the phrase “Extra Credit” below the name, section number and assignment number in the upper right-hand corner of the submission. Otherwise, I won’t be looking for the extra credit!

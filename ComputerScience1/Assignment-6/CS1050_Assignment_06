@@ -1,0 +1,41 @@
+CS 1050, Mr. Kramer     	         Programming Assignment #6	 	# of pts: 40
+
+Purpose	Calculate a triangle area and perimeter using Java classes. This builds on the ideas in Assignment #2.
+
+Due Date	Per the Course at a Glance. Can be resubmitted.
+
+Submissions	In this order: printed copy of the source code with line numbers of both source files (main program and the class), and a screen print showing the output. You will type in three numbers that are the lengths of the sides of a triangle and show the output.
+
+Java Topics	Java classes, if statements, calculating area and perimeter.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+
+Specification
+
+This program is a revision of Programming Assignment #2 to use a separate class. See the handout: Interactive Average with a Class and Interactive Average Main as a model.
+
+Write a separate Java class for a triangle named YourName_S_06_Triangle that will have three private instance variables of type double for the lengths of the sides of a triangle.  This Java class should contain these methods:
+
+1.	A constructor that initializes the instance variables to default values of 0. This Constructor has no parameters
+2.	A constructor with three parameters that initializes the instance variables to the parameter values.
+3.	A method for the user to input the lengths of the sides of a triangle. Include prompts. Allow values only greater than 0
+4.	A method that outputs the lengths of the sides of the triangle along with a message
+5.	A method that returns the perimeter of the triangle
+6.	A method that returns the area of the triangle
+
+This class should be placed in a file that is separate from the class containing the main program. Note: Only method #2 has parameters. As is typical in a class, the rest of the class methods do not have parameters.
+
+Write a Java application main program in Java file YourName_S_06 in the order specified below. This code will be in a file that is separate from the one for the Triangle class above. Note that the main method should have perimeter and area as local variables.
+
+1.	Call a void method that outputs an explanation of what the program does.  Include in the explanation that this program uses a class for the sides of a triangle and include your name.
+
+2.	Get the lengths of the sides from the user. Use the method from the Triangle class.
+
+3.	Calculate the perimeter of the triangle. Use the method from the Triangle class.
+
+4.	Calculate the area of the triangle. Use the method from the Triangle class.
+
+5.	Use a void method to output, with appropriate messages: The lengths of the sides of the triangle (use the method from the Triangle class), the perimeter of the triangle, and the area of the triangle.
+
+The style of your code should be similar to that of Interactive Average with a Class.  Be sure to include comments – programmer identification, assignment number, section number as appropriate, purpose, and a brief explanation of the methods should appear in the header comment, along with the vocabulary word and quote. Include an explanation for all variables, parameters and methods.
+

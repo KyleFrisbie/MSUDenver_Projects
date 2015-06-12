@@ -1,0 +1,12 @@
+You added z to the list.
+z was not previously in the list.
+You added x to the list.
+x was not previously in the list.
+You added y to the list.
+y was not previously in the list.
+You added z to the list.
+z was previously at 2
+You added z to the list.
+z was previously at 0
+You added a to the list.
+a was not previously in the list.

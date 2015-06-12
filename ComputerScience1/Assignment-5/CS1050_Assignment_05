@@ -1,0 +1,42 @@
+CS 1050, Mr. Kramer        		Programming Assignment #5        	   # of pts: 40
+
+Purpose		Calculate area of a triangle using methods. This assignment builds on the ideas in Assignment #2.
+
+Due Date	Per the Course at a Glance. Can be resubmitted.
+
+Submissions	In this order: printed copy of the source code with line numbers and a screen print showing the input and output. You will type in three numbers that are the lengths of the sides of a triangle and show the output.
+
+				Note:	if you are handing in a revision, hand in the original graded version(s) and put the newer revised version on top.
+
+Java Topics	methods, if statements, calculating area and perimeter.
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+
+Specification
+
+This program is a revision of Programming Assignment #2 to use methods. We will discuss Assignment #1, Interactive Average with Methods, as a model.
+
+Write a Java program and methods in the order listed below.
+
+Declare the variables for the sides of the triangle, perimeter, and area inside the main method and use them as appropriate to call the methods.
+
+1.	Call a void method that will output an explanation of what the program does.  Include in the explanation that this program uses methods and include your name.
+
+2.	Prompt for the input of three real numbers – use type double – these will be the lengths of the sides of a triangle. Input the three sides and ensure the numbers are greater than 0. Use one method to read and return the value of a side so you will call this method three times. Note: use the style of Program Assignment #1 for the input.
+
+3.	Calculate the perimeter of the triangle. The perimeter is the sum of the lengths.  Use a method to calculate the perimeter. It will have three parameters (the sides of the triangle).  Then, use a method to calculate the area of the triangle – it will have three parameters (the sides of the triangle) -- use Heron’s formula:
+				   _________________
+			A = √ s(s – a)(s – b) (s – c)	    where
+
+	s is 1/2 of the perimeter and is a local variable, and a, b, and c represent the lengths of the sides of the triangle.
+
+Use the predefined class Math and the method  Math.sqrt  to calculate the square root. Usage:     value = Math.sqrt(an expression)
+
+4.	Use a void method to output, with appropriate messages: 
+	The lengths of the sides of the triangle,
+	The perimeter of the triangle, and
+	The area of the triangle.
+	Note that this method requires five parameters.
+
+As before, include comments – programmer identification, assignment number, section, purpose, explanation for all variables, parameters, and methods, and the vocabulary word and quote. See documentation standards.
+

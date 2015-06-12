@@ -1,0 +1,51 @@
+CS 1050, Mr. Kramer        		Programming Assignment #1				  # of Points: 10
+
+Purpose: Calculate the average of two numbers. Get used to your development environment.
+Due and re-doable dates per the Course at a Glance. 
+
+If you are submitting a revision, hand in the original graded version(s) also. Staple the revised version behind the original versions and so that the newer revised version is on top.
+ 
+Create, save and run the file containing the program code between the lines below. In the comments at the start of the program, replace phrases as appropriate.  Use this comment header for all programs, with a different vocabulary word and a different quote for each assignment.
+
+Type the code as it is written between the lines. Be sure to include the blank lines and comments, and the indentation pattern as shown. Remember that Java is case sensitive so type the code exactly as written. Note there are curly braces {…}, square braces […] and parentheses (…) in the code.
+
+// Interactive Average Program // 	This program asks the user to input two real numbers, // 	calculates the average of these numbers, and prints the results
+// your name
+// Program #1, CS 1050, Section 2 
+// Version of Java, IDE, computer and operating system
+// New vocabulary word
+// Inspirational quote – not religious or political – along with the source and the person’s year of birth [and death]
+
+import java.util.*;
+
+public class YourName_2_01 {		 // Replace YourName with your name . No spaces or underscores
+
+  static Scanner console = new Scanner(System.in);
+
+  public static void main (String [ ] args) throws Exception  { 
+
+    double num1, num2;   // Input values
+    double average;          // Average of the input values
+	
+    // Explain the program to the user
+    System.out.println("This program averages two real numbers.");
+
+    // Input the two numbers 
+    System.out.print("Input your first number: "); 
+    num1 = console.nextDouble();
+
+    System.out.print("Input your second number: ");
+    num2 = console.nextDouble();
+
+    // Calculate the average of the two numbers
+    average = (num1 + num2) / 2.0;
+
+    // Output the results
+    System.out.print("The average of " + num1);
+    System.out.println(" and " + num2 + " is " + average);
+    System.out.println("your name");
+  } // End main
+} // End class
+
+After you have created the Java file, compile and run the program.  Test it with a few pairs of numbers. When the program works correctly, run and submit it using as input the numbers 12 and 16.5.
+Hand in a printed copy of the source code for the program (don’t use a screen print) WITH LINE NUMBERS DISPLAYED (as you’ll do with all assignments) and a screen print showing the output.  Staple the pages together. The top page should be the source code, bottom page the output. By hand, write your name and Program #1, in the upper right-hand corner of the top page (as you’ll do with all assignments).

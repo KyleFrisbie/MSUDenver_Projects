@@ -1,0 +1,150 @@
+import java.util.Scanner;
+import java.io.*;
+
+public class FinalProgram {
+	public static void main(String[] args) {
+		final int ARY_LEN = 19;
+		String[] names = new String[ARY_LEN];
+		double[][] bigNums = new double [ARY_LEN][3];
+		int[][] littleNums= new int[ARY_LEN][2];
+		int linesRead;
+		double average4th;
+		
+		final String INPUT_FILE = "H:Input.txt";
+		final String OUTPUT_FILE = "G:Output.txt";
+		
+		File inputDataFile = new File(INPUT_FILE);
+		Scanner inputFile = new Scanner(inputDataFile);
+		
+		File outputDataFile = new File(OUTPUT_FILE);
+		PrintWriter outputFile = new PrintWriter(outputDataFile);
+		
+		linesRead = readData(inputFile, names, bigNums, littleNums, ARY_LEN);
+		
+		outputData(outputFile, names, bigNums, littleNums, linesRead, ARY_LEN);
+		
+		average4th = calcAverage(littleNums, ARY_LEN);
+		
+		searchNames(names, littleNums, ARY_LEN);
+		
+		findTiny2(bigNums, ARY_LEN);
+	}
+	
+	public static int readData(Scanner fileIn, String[] nameAry, double[][] big, int[][] little, int len) {
+		int count = 0;
+		int linesLeft = 0;
+		while(fileIn.hasNext() && count < len) {
+			big[count][0] = fileIn.nextDouble();
+			little[count][0] = fileIn.nextInt();
+			big[count][1] = fileIn.nextDouble();
+			little[count][1] = fileIn.nextInt();
+			big[count][2] = fileIn.nextDouble();
+			nameAry[count] = fileIn.nextLine().trim();
+			
+			count++;
+		}
+		
+		if(count == len && fileIn.hasNext()) {
+			fileIn.nextLine();
+			linesLeft++;			
+		}
+		if(linesLeft > 0) {
+			System.out.println("There were " + linesLeft + " lines left in the input file");
+		}
+		
+		return count;
+	}
+
+	public static void outputData(PrintWriter fileOut, String[] nameA, double[][] bigAry, int[][] littleAry, int read, int length) {
+		fileOut.println("Table of names and number values:");
+		fileOut.println("Name\t\tDouble1\tInteger1\tDouble2\tInteger2\tDouble3");
+		for (int i = 0; i < length; i++) {
+			fileOut.println(nameA[i] + "\t" + bigAry[i][0] + "\t" + littleAry[i][0]
+					+ "\t" + bigAry[i][1] + "\t" + littleAry[i][1] + "\t" + bigAry[i][2]);
+		}
+		fileOut.println("\nLines stored from input file: " + read);
+	}
+
+	public static double calcAverage(int[][] little, int aryLen) {
+		int sum = 0;
+		int counts = 0;
+		double avg = 0;
+		
+		while(counts < aryLen) {
+			sum += little[counts][1];
+			counts++;
+		}
+		
+		if(counts > 0) {
+			avg = ((double)(sum))/counts;
+		}
+		
+		System.out.println("The real average of the 4th column of numbers is: " + avg);
+		return avg;
+	}
+	
+	public static void searchNames(String[] nAry, int[][] litAry, int len) {
+		Scanner keyboard = new Scanner(System.in);
+		String searchName;
+		String searchArray;
+		boolean found = false;
+		int counter = 0;
+		System.out.print("Enter the name you would like to search for: ");
+		searchName = keyboard.nextLine();
+		while(counter < len) {
+			searchArray = nAry[counter];
+			if(searchName.compareTo(searchArray) == 0) {
+				found = true;
+				break;
+			}
+			counter++;
+		}
+		if(found) {
+			System.out.println("The name " + searchName + "was found! The two integer values are: " + litAry[counter][0] + "and" + litAry[counter][1]);
+		} else {
+			System.out.println("The name " + searchName + "was not found");
+		}
+	}
+
+	public static void findTiny2(double[][] big, int lengthOf) {
+		double tiny1;
+		double tiny2;
+		double holder;
+		int index = -1;
+		int index2 = -1;
+		
+		if(lengthOf >= 2) {
+			tiny2 = big[0][2];
+			tiny1 = big[1][2];
+			index = 0;
+			index2 = 1;
+			if (tiny2 < tiny1) {
+				holder = tiny1;
+				tiny1 = tiny2;
+				tiny2 = holder;
+				index = 1;
+				index2 = 0;
+			}
+			for (int i = 2; i < lengthOf; i++) {
+				holder = big[i][2];
+				if(holder <= tiny1) {
+					tiny2 = tiny1;
+					tiny1 = holder;
+					index = index2;
+					index2 = i;
+				} else if (holder < tiny2) {
+					tiny2 = holder;
+					index = i;
+				}
+			}
+		} else {
+			System.out.println("It appears that there aren't more than 2 numbers in your array, check your input file.");
+		}
+		if (index > -1) {
+			System.out.println("The second smallest number is: " + tiny2 + " and it was found at index: " + index);
+		} else {
+			System.out.println("A second smallest value was not found");
+		}
+		
+	}
+}

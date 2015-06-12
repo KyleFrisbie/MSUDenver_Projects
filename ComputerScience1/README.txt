@@ -1,0 +1,1 @@
+Collection of assignments from Computer Science 1, Summer 2014

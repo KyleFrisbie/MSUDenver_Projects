@@ -1,0 +1,37 @@
+CS 1050, Mr. Kramer    			Programming Assignment #2		   # of points: 20
+
+Purpose: calculate the area of a triangle. 
+Due and re-doable dates are per the Course at a Glance.  
+
+If you are handing in a revision, submit the original graded versions also with the most current version on top.  Staple all submissions of this assignment together. 
+
+Write a Java program named as usual, YourName_S_02 (S = Section #), to execute the steps below. Write your program so that the steps are done in the order listed.
+
+1.	Output an explanation of what the program does.  This should include information about the input and output.
+
+2.	Prompt for the input of three real numbers – type double – which are the lengths of the sides of a triangle. Read the three sides and don’t do any error checking. Use the style of Program Assignment #1 for the input.
+
+3.	Calculate the perimeter of the triangle – the perimeter is the sum of the lengths.  Then, calculate the area of the triangle – use the formula (√ is the symbol for square root)
+		   _________________
+	A =  √ s(s – a)(s – b) (s – c)		where
+
+        s is 1/2 of the perimeter and a, b, and c are the lengths.
+
+Use the pre-defined class Math (on textbook page 62) and the method Math.sqrt() to calculate the square root.
+
+4.	Output, with appropriate messages: 
+The lengths of the sides of the triangle,
+The perimeter of the triangle, and
+The area of the triangle.
+Your Name
+
+The style of the program should be similar to that of Program Assignment #1. Include the comments section as at the top of assignment 1: programmer identification, purpose, version of Java used, vocabulary word and quotation. Include comments that explain variables, and some comments in the body of the code (divide the code into blocks and comment each block).
+
+By hand, write your name, Section 2, and Program #2 in the upper-right hand corner of the top page and staple the program and screen output.  The top page should be the source code.
+
+Hand in:
+A printed copy of the source program with line numbers. Do not use screen prints.
+A screen print showing the output – you will need to type in 3 numbers that are the lengths of the sides of a triangle.
+
+
+Note:  also run the program with numbers that are not the lengths of the sides of a triangle to see what happens. For example:  use for input negative numbers or 0 or all three sides 0.

@@ -1,0 +1,156 @@
+// Toolkit_General_Main, Version 03 - Test the Toolkit_General Class
+
+// Note that the class with all the methods requires many import
+// statements, but this main program does not. Another advantage
+// of using classes to hold methods
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Toolkit_General_Main
+{
+   public static void main(String[] args) throws IOException
+   {
+      // Declarations to test the methods
+      
+      final String NL = System.lineSeparator(); // Spacing between lines
+      final String SP = "   ";                  // Spacing between fields
+      
+      File inputName = new File("Toolkit_General_Main_Input.txt");
+      Scanner inp    = new Scanner(inputName);
+      FileWriter out = new FileWriter("Toolkit_General_Main_Output.txt");
+      
+      // Declare the toolkit variables
+      
+      Toolkit_General tool1 = new Toolkit_General();
+      Toolkit_General tool2 = new Toolkit_General(tool1.OUTPUT_MODE_DEFAULT);
+      Toolkit_General tool3 = new Toolkit_General(tool1.OUTPUT_MODE_BOTH, out);
+      
+      // Do some work! Test the Toolkit_General class's methods. Testing is 
+      // generally in alphabetical order within the class, except for the array
+      // sorting, which is last
+      
+      tool1.outputLine("1: " + tool1.getOutputMode());
+      tool2.outputLine("1: " + tool2.getOutputMode());
+      tool3.outputLine("1: " + tool3.getOutputMode());
+      
+      tool1.outputLine("2: " + "Current date: " + tool1.getCurrentDate());
+      tool1.outputLine("2: " + "Current date: " + tool1.getCurrentDate("yyyy/MM/dd"));
+      tool1.outputLine("2: " + "Current time: " + tool1.getCurrentTime());
+      tool1.outputLine("2: " + "Current time: " + tool1.getCurrentTime("HH:mm"));
+      tool1.outputLine("2: " + "Current date and time: " + tool1.getCurrentDateTime());
+      
+      tool3.outputLine("3: " + tool3.padNumber(3.1415926545,10,"0.00"," ",""));
+      tool3.outputLine("3: " + tool3.padString("Tool",10,"<",">"));
+      tool3.outputLine("3: " + tool3.rightPad(3.14159,20,"#,##0.00"," ") + "21");
+      tool3.outputLine("3: " + tool3.leftPad (3.14159,20,"#,##0.00"," ") + "<-- 21");
+      tool3.outputLine("3: " + tool3.roundNumber(3.1415926535,5));
+  
+      // Test the partial array filling and the sorting WITH the index array
+          
+      int[] data  = new int[10];  // Array to fill
+      int[] index = new int[data.length];  // Index array
+      int nRead;                 // # of numbers read
+      
+      // Load the index array so index[i] = i + 1
+      nRead = tool3.partiallyFillArray(inp, data);
+      for (int i = 0; i < nRead; i++)
+      {
+         index[i] = i + 1;
+      }
+
+      tool3.outputLine("3: " + nRead);
+      displayArray("3: Data  ",data, nRead);
+      displayArray("3: Index ",index,nRead);
+      tool3.outputLine("3: " + nRead + SP + data[0]+ "/" +index[0] + SP + 
+                       data[nRead-1]+ "/" +index[nRead-1]);
+
+      tool3.selectionSortWithIndex(data,index,nRead);
+
+      displayArray("3: Data  ",data, nRead);
+      displayArray("3: Index ",index,nRead);
+      tool3.outputLine("3: " + nRead + SP + data[0]+ "/" +index[0] + SP + 
+                       data[nRead-1]+ "/" +index[nRead-1]);
+
+      // Test sorting the array WITHOUT the indexs
+      
+      tool3.outputLine("_________ Second Array Sort, No Indexes");
+      int[] data2 = { 1, -2, 2, -2 };
+      int len = data2.length;
+      tool3.outputLine("3: " + len);
+
+      displayArray("3: Data2 ",data2, len);
+      tool3.outputLine("3: " + len + SP + data2[0] + SP + data2[len-1]);
+
+      tool3.selectionSort(data2,len);
+
+      displayArray("3: Data2 ",data2, len);
+      tool3.outputLine("3: " + len + SP + data2[0] + SP + data2[len-1]);
+      
+      // Test sorting the array alphabetically      
+      tool3.outputLine("_________ Alphabetical Sort");
+
+      String[] names = { "Moe", "Larry", "Curly" };
+      int namesLen = names.length;    // # of rows in the alpha array
+      double [][] dataForNames = { { 2.0, 22.0 },
+                                   { 3.0, 33.0 },
+                                   { 1.0, 11.0 } }; 
+      int nColumns = dataForNames[0].length;
+      
+      tool3.outputLine("4: " + namesLen);
+
+      displayStringArray("4: Names before String sort: ",
+                                       names, dataForNames, namesLen);
+      tool3.outputLine("4: <" + namesLen + SP + names[0] + SP +
+                       names[namesLen-1] + NL + SP + SP +
+                       dataForNames[0][0] + SP + 
+                       dataForNames[namesLen-1][nColumns-1]);
+
+      tool3.selectionSortStringWithNumbers(names, dataForNames, namesLen, -1);
+      displayStringArray("4: Names after String sort: ", 
+                                       names, dataForNames, namesLen);
+
+      tool3.outputLine("4: >" + namesLen + SP + names[0] + SP +
+                       names[namesLen-1] + NL +
+                       dataForNames[0][0] + SP + 
+                       dataForNames[namesLen-1][nColumns-1]);
+      tool3.selectionSortStringWithNumbers(names, dataForNames, namesLen, 0);
+
+      displayStringArray("5: Names after Column 0 sort: ", 
+                                       names, dataForNames, namesLen);
+
+      tool3.outputLine("5: >" + namesLen + SP + names[0] + SP +
+                       names[namesLen-1] + NL +
+                       dataForNames[0][0] + SP + 
+                       dataForNames[namesLen-1][nColumns-1]);
+      // Wrap up
+                 
+      out.close();
+      System.exit(0); 
+   }  // End main
+
+   // *********************************************************************
+   
+   public static void displayArray(String msg, int[] array, int len)
+   {      
+      System.out.print(msg);
+      for (int i = 0; i < len; i++)
+      {
+         System.out.print(array[i] + "  ");
+      }
+      System.out.println("");
+   }  // End displayArray
+
+   // *********************************************************************
+   
+   public static void displayStringArray(String msg, 
+                                         String[] alpha, double[][] nums, int len)
+   {      
+      System.out.print(msg);
+      for (int i = 0; i < len; i++)
+      {
+         System.out.print(alpha[i] + "  ");
+      }
+      System.out.println("");
+   }  // End displayArray
+}

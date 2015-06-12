@@ -1,0 +1,162 @@
+/* Assignment #10
+		This program takes two seperate input .txt file with multiple integer values.
+      These integers are read by the program (one input file at a time using a for
+      loop) and stored in an array called setAry. A parallel array is also created
+      (called indexAry) to keep track of the original index value for each integer
+      in the setAry. A parameter called count is used to keep track of how many
+      integers from the input file were stored in the setAry. An additional
+      parameter called flushCount keeps track of the number of additional integers
+      from the input file which did not fit within the specified array. After these
+      values are set, the program prints out the initial states of both the setAry
+      and the indexAry within a table, followed by the number of integers from the
+      input file copied to setAry (count) as well as the number of integers from the
+      input file unable to fit in setAry (flushCount). After these values have been
+      printed to a new output file, the program then sorts the integers within
+      setAry in ascending order, while simultaneously moving the corresponding
+      position value for that integer in the parallel indexAry to the same position.
+      After the arrays have been sorted, the arrays are again printed into a table
+      within the output file. All together this program processess two input
+      programs, and creates two output programs.
+      
+   Kyle L Frisbie working in association with Tom Selke
+   Program #10, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.util.Scanner;
+import java.io.*;
+
+public class KyleLFrisbie_2_10 {
+
+	static Toolkit_General tools = new Toolkit_General();
+
+	public static void main(String[] args) throws IOException {
+
+		// Declare variables
+		final int ARRAY_LENGTH = 15;  // Constant to hold value of array lengths
+		int fileSelect;               // To hold selected input file (1 or 2) based on
+                                    //    "select file for loop"
+		int[] setAry =
+            new int[ARRAY_LENGTH];  // Array of int from input file
+		int[] indexAry =
+            new int[ARRAY_LENGTH];  // Array parallel to setAry, holds original
+                                    //    place values
+		int count = 0;                // Counter to hold number of int values in
+						                  //   input file
+		int flushCount = 0;           // Counter to hold number of int values left
+							               //   over in input file after setAry is set
+
+		// For loop to select input/output file 1 and then input/output file 2
+		for (fileSelect = 1; fileSelect <= 2; fileSelect++) {
+
+			// Define file names, input and output:
+			final String INPUT_FILE = "KyleLFrisbie_2_10_Input_Set"
+					+ fileSelect + ".txt";
+			final String OUTPUT_FILE = "KyleLFrisbie_2_10_Output_Set"
+					+ fileSelect + ".txt";
+
+			// Access the input/output files
+			File inputDataFile = new File(INPUT_FILE);
+			Scanner inputFile = new Scanner(inputDataFile);
+
+			FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+			PrintWriter outputFile = new PrintWriter(outputDataFile);
+
+			System.out.println("Reading file " + INPUT_FILE + "\r\n"
+					+ "Creating file " + OUTPUT_FILE + "\n");
+
+			// Call method to set values in input file to array setAry and count
+			//    number of integers used from input file in array
+			count = setSetN(inputFile, setAry, indexAry, count);
+
+			// Call method to discover leftover integer values in input file
+			flushCount = getCountInput(inputFile, flushCount);
+
+			// Call method to print list of numbers to output file
+			setOutputNumbers(outputFile, setAry, indexAry, count, flushCount);
+         
+			// Sort numbers in setAry using Selection Sort method from Tool_Kit
+			tools.selectionSortWithIndex(setAry, indexAry, count);
+			
+			// Call method to print list of sorted numbers to output file
+			setOutputNumbers(outputFile, setAry, indexAry, count, flushCount);
+         
+			// Call method to clear array for new file
+			setAry = clearArray(setAry);
+
+			// Call method to clear count for new file
+			count = clearCount(count);
+         
+         // Call method to clear flushCount for new file
+         flushCount = clearFlushCount(flushCount);
+
+			inputFile.close(); // Close input file
+			outputFile.close(); // Close output file
+		}
+		System.exit(0);
+	}
+
+/**********************************************************************************/
+	// Method to set values in input file to array setAry and count
+	// number of integers used from input file in array
+	public static int setSetN(Scanner inFile, int[] arySet, int[] aryIndex,
+			int counter) {
+		for (int i = 0; i < arySet.length && inFile.hasNext(); i++) {
+			arySet[i] = inFile.nextInt();
+			aryIndex[i] = i + 1;
+			counter++;
+		}
+		return counter;
+	}
+
+/**********************************************************************************/
+	// Method to discover total number of values in input file
+	public static int getCountInput(Scanner iFile, int fCount) {
+		while (iFile.hasNext()) {
+			iFile.nextInt();
+			fCount++;
+		}
+
+		return fCount;
+	}
+
+/**********************************************************************************/
+	// Method to print list of numbers to output file
+	public static void setOutputNumbers(PrintWriter output, int[] setAry,
+			int[] indexAry, int count, int flushCount) {
+		output.println("This page contains a list of the numbers taken "
+				         + "from the input file, and their index positions.");
+		output.println("Input Number\t	Original Index");
+		for (int i = 0; i < count; i++) {
+			output.println(setAry[i] + "\t\t\t" + indexAry[i]);
+		}
+      output.println("The amount of numbers from the input file that fit in the "
+                     + "array are: " + count);
+		output.println("The amount of numbers from the input file that did not fit in "
+				         + "the array is: " + flushCount);
+      output.println("\nKyle L Frisbie\n\n\n\n\f");
+	}
+
+/**********************************************************************************/
+	// Method to clear array for new file
+	public static int[] clearArray(int[] setA) {
+		int[] newAry = new int[setA.length];
+		for (int i = 0; i < setA.length; i++) {
+			newAry[i] = 0;
+		}
+		return newAry;
+	}
+
+/**********************************************************************************/
+	// Method to clear count for new file
+	public static int clearCount(int counts) {
+		return counts = 0;
+	}
+   
+/**********************************************************************************/
+   // Method to clear flushCount for new file
+   public static int clearFlushCount(int flushCounts) {
+      return flushCounts = 0;
+   }
+
+}

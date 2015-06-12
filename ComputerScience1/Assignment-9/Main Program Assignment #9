@@ -1,0 +1,215 @@
+/* Assignment #9
+		This program takes an input .txt file with multiple values for miles
+		driven. The program analyzes the mileage values from the input file
+		and stores them in an array called mileage. The program then
+		calculates the appropriate reimbursement for each distance traveled
+		based on values provided for in the spec, and stores them in another
+		array (parallel to the mileage array) called reimb. While the program
+		is assessing the values, it is printing a table containing the mileage
+		value along with its associated reimbursement amount within a new
+		output file. Averages of all reimbursement values as well as all
+		mileage values will be also be calculated. After the program has
+		concluded assessing and printing mileage values and reimbursement
+		values, it prints a summary of total reimbursement, the number of
+		mileage values processed, the total of the mileage values > 0, and the
+		number of positive mileage values.
+      
+   Kyle L Frisbie working in association with Tom Selke
+   Program #9, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.util.Scanner;
+import java.io.*;
+import java.text.DecimalFormat;
+
+public class KyleLFrisbie_2_09 {
+	
+	static Toolkit_General tools = new Toolkit_General();
+	
+	static DecimalFormat formatMiles = new DecimalFormat("##,##0.0");
+	static DecimalFormat formatReimb = new DecimalFormat("##,##0.00");
+	
+   public static void main(String[] args) throws IOException {
+      
+		// Declare variables
+      double[] mileage;			// array of miles driven (found in input file)
+      double[] reimb;			// array of reimbursement (calculated from miles)
+		double[] finalValues;		// array to hold final values of miles and reimb
+      int nValues = 0;			// number of mileage values input file contains
+      
+      // Define file names, input and output
+      final String INPUT_FILE = "KyleLFrisbie_2_09_Input.txt";
+      final String OUTPUT_FILE = "KyleLFrisbie_2_09_Output.txt";
+      
+      // Access the input/output files
+      File inputDataFile = new File(INPUT_FILE);
+      Scanner inputFile = new Scanner(inputDataFile);
+		
+      FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+      PrintWriter outputFile = new PrintWriter(outputDataFile);
+      System.out.println("Reading file " + INPUT_FILE + "\r\n" +
+                         "Creating file " + OUTPUT_FILE + "\n");
+		
+		// Calls method to explain program to user
+		explainProgram(outputFile);
+		
+		// Set nValues to value of first line of input file
+		nValues = inputFile.nextInt();
+		
+		// Initialize mileage and reimb array lengths to nValues
+		mileage = new double[nValues];
+		reimb = new double[nValues];
+		
+		// Calls method to read mileage values from input file and store them in array
+		setMileageArray(mileage, inputFile);
+		
+		// Calls method to calculate reimbursement based on mileage and set value to
+		//		reimb array
+		reimb = setReimbArray(mileage, reimb);
+		
+		// Calls method to print lines to table
+		setTable(outputFile, mileage, reimb);
+		
+		// Calls method to calculate averages and set final numbers
+		finalValues = calculateFinalNumbers(mileage, reimb);
+		
+		// Calls method to print summary to output file
+		printSummary(outputFile, finalValues, nValues);
+		
+		inputFile.close(); // Close input file
+      outputFile.close(); // Close output file						 
+		System.exit(0);  
+	}
+	
+	// Method to explain program to user
+	public static void explainProgram(PrintWriter explain) {
+		explain.println(
+			  "This program takes an input .txt file with multiple values for miles "
+			+ "\ndriven. The program analyzes the mileage values from the input file "
+			+ "\nand stores them in an array called mileage. The program then "
+			+ "\ncalculates the appropriate reimbursement for each distance traveled "
+			+ "\nbased on values provided for in the spec, and stores them in another "
+			+ "\narray (parallel to the mileage array) called reimb. While the program "
+			+ "\nis assessing the values, it is printing a table containing the mileage "
+			+ "\nvalue along with its associated reimbursement amount within a new "
+			+ "\noutput file. Averages of all reimbursement values as well as all "
+			+ "\nmileage values will be also be calculated. After the program has "
+			+ "\nconcluded assessing and printing mileage values and reimbursement "
+			+ "\nvalues, it prints a summary of total reimbursement, the number of "
+			+ "\nmileage values processed, the total of the mileage values > 0, and the "
+			+ "\nnumber of positive mileage values. ");
+	}
+	
+	// Method to read mileage values from input file and store them in array
+	public static double[] setMileageArray(double[] mArray, Scanner inFile) {
+		for(int i = 0; i < mArray.length; i++) {
+			while(inFile.hasNext()) {
+				mArray[i] = inFile.nextDouble();
+			}
+		}
+		
+		return mArray;
+	}
+	
+	// Method to calculate reimbursement based on mileage and set value to reimb array
+	public static double[] setReimbArray(double[] mileArray, double[] reimbArray) {
+		for(int i = 0; i < mileArray.length; i++) {
+			if(mileArray[i] <= 0) {
+				reimbArray[i] = 0;
+			} else if(mileArray[i] < 400) {
+				reimbArray[i] = 0.18 * mileArray[i];
+			} else if(mileArray[i] < 900) {
+				reimbArray[i] =65.0 + 0.15 * (mileArray[i] - 400);
+			} else if(mileArray[i] < 1300) {
+				reimbArray[i] = 115.0 + 0.12 * (mileArray[i] - 900);
+			} else if(mileArray[i] < 1900) {
+				reimbArray[i] = 140.0 + 0.10 * (mileArray[i] -1300);
+			} else if(mileArray[i] < 2600) {
+				reimbArray[i] = 165.0 + 0.08 * (mileArray[i] - 1900);
+			} else {
+				reimbArray[i] = 195.0 + 0.06 * (mileArray[i] - 2600);
+			}
+		}
+		
+		return reimbArray;
+	}
+	
+	// Method to print lines to table
+	public static void setTable(PrintWriter table, double[] mileAry, double[] reimbAry) {
+	
+		// Set leftPad variables
+		String pad1;
+		String pad2;
+			
+		// Set table heading
+		table.println("Mileage \t\t" + "Reimbursement");
+		
+		for(int i = 0; i < mileAry.length; i++) {
+			
+			// Call leftPad from toolkit class and set leftPad variables
+			pad1 = tools.leftPad(mileAry[i], 10, "#0.0", " ");
+			pad2 = tools.leftPad(reimbAry[i], 10, "#0.00", " ");
+		
+			// Set values to table
+			if(mileAry[i] > 0) {
+				table.println(mileAry[i] + "\t\t" + reimbAry[i]);
+			} else {
+				table.println(mileAry[i] + "\t\t" + "*****");
+			}
+	
+		}
+	}
+	
+	// Method to calculate final values and store them in an array called finalNumbers
+	public static double[] calculateFinalNumbers(double[] mAry, double[] rAry) {
+		
+		double[] finalNumbers = new double[5]; // array to store final values
+		double totalMile = 0;				  		// total number of mileage values
+		double totalReimb = 0;				  		// sum of all reimbursement paid
+      int nPositiveMile = 0;				  		// number of positive mileage values
+		int nPositiveReimb = 0;				  		// number of positive reimb valuesd
+		
+		for(int i = 0; i < mAry.length; i++) {
+			if(mAry[i] > 0) {
+				totalMile += mAry[i];
+				nPositiveMile++;
+			}
+			if(rAry[i] > 0) {
+				totalReimb += rAry[i];
+				nPositiveReimb++;
+			}
+		}
+		
+		// Set final values to array finalNumbers
+		finalNumbers[0] = nPositiveMile;
+		if(nPositiveMile > 0) {
+			finalNumbers[1] = totalMile;
+			finalNumbers[2] = totalMile / nPositiveMile;
+		} else {
+			finalNumbers[1] = 0;
+			finalNumbers[2] = 0;
+		}
+		if(nPositiveReimb > 0) {
+			finalNumbers[3] = totalReimb;
+			finalNumbers[4] = totalReimb / nPositiveReimb;
+		} else {
+			finalNumbers[3] = 0;
+			finalNumbers[4] = 0;
+		}
+		return finalNumbers;
+	}
+	
+	// Method to print summary of values to output file
+	public static void printSummary(PrintWriter summary, double[] finalNums, int totalVal) {
+		summary.println("\nThe total amount of reimbursement is: "
+							+ formatReimb.format(finalNums[3]));
+		summary.println("The total number of mileage values processed are: "
+							+ totalVal);
+		summary.println("The number of positive mileage values processed are: "
+							+ finalNums[0]);
+		summary.println("The number of mileage values > 0 are: " + finalNums[1]);
+		summary.println("The average of mileage values > 0 is: " + finalNums[2]);
+		summary.println("The average of reimbursement > 0 is: " + finalNums[4]);
+	}
+}

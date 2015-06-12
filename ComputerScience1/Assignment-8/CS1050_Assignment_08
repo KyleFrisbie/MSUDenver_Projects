@@ -1,0 +1,60 @@
+CS 1050, Mr. Kramer              Programming Assignment #8                       # of points: 70
+
+Purpose	Process grades and names from an input file; produce a report in an output file based on the range of grades.
+
+Due Date	Per the Course at a Glance. Cannot be redone.
+
+Submissions	In this order: printed copy of the source code with line numbers, the input file, and the output file.
+
+Java Topics	Java I/O, while loops, if-else-if, methods, summing/averaging data.
+		The programming standards and guidelines as discussed in class.
+		Use of leftPad and rightPad in the Toolkit_General class.		
+
+References	Textbook – use the index for relevant topics; PowerPoint slides.
+Your code from Assignment 4 for I/O
+		Toolkit_General.java
+
+Specification	
+
+Write a Java program that reads from one file and writes to a second file. The files are named according to the naming convention we have been following using your name, section number and assignment number. The program processes input lines until the end of file. Read and process the input file in one pass through of the file, as should be done in all programs from now on. All output should be to one file.  Each line in the input file contains an integer followed by a name as shown below. Use a String to store the name.  Do NOT use an array.  Do NOT use global (non-local) variables except for the Toolkit_General. The main method should contain all the variables.  Do NOT use a separate class except for the Toolkit_General.
+
+Create a printed report that consists of a table with appropriate headings. The columns of the report contain the name, value, and then a message.  The message is “OUTSTANDING” if the value is 90 or more; “Satisfactory” if the value is between 70 and 89 inclusive; “FAILING” otherwise.  Use "if/else/if". Use methods to line up the columns of the report. Use a rightPad method to output the name (a string) to a specified width, and a leftPad method for the value. Use Toolkit_General for the leftPad and rightPad methods.
+
+After all the data lines have been processed, print with messages the number of data lines processed, and the number and real average of the values between 70 and 89 inclusive (use one decimal place).
+
+Follow the documentation guidelines. Methods must be used at least for the heading of the table and for the summary of the table. 
+
+(continued on the next page)
+
+Data to use in this order: 
+------------------------------------
+ 70         Light Karen L    
+ 99         Fagan Bert Todd     
+ 60         Antrim Forrest N    
+ 73         Camden Warren       
+ 80         Mulicka Al B       
+ 99         Lee Phoebe
+ 75         Bright Harry    
+ 92         Garris Ted
+ 83         Benson Martyne     
+ 71         Lloyd Jeanine D     
+ 43         Leslie Bennie A     
+ 40         Brandt Leslie       
+ 100       Schulman David      
+ 51         Worthington Dan     
+ 60         Hall Gus W          
+ 60         Prigeon Dale R      
+ 96         Fitzgibbons Rusty   
+
+Instead of typing in the above data lines, you can copy them from this assignment file to a text file using Notepad (PC) or textEdit (Mac). Do not put the table heading in the input file. That becomes your input file. Using the variable “inputFile” below to represent the input file, you can input each pair of data values as follows:
+
+	while (inputFile.hasNext()) {
+	   grade = inputFile.nextInt();	// On the first row, reads 70 into variable ‘grade’
+	   name = inputFile.nextLine()	// Reads “         Light Karen L     ” into variable ‘name’
+	   name = name.trim();	// Trims leading and trailing spaces, leaving
+					//  “Light Karen L” in the variable ‘name’
+	// Process the information
+	}
+
+Questions?  I won’t hold my breath. 
+

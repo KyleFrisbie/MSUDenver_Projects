@@ -1,0 +1,60 @@
+// Triangle Area Calculator
+// 	This program prompts the user to input the length of the three sides of any
+//		given triangle in order to calculate its perimeter and area and prints the
+//		results.
+// Kyle L Frisbie
+// Program #2, CS 1050, Section 2 
+// Version of Java: 1.7.0, IDE: jGRASP 1.8.8_12, computer and operating system:
+// Dell Optiplex 960 with Windows 7
+// Onomasticon: a list or collection of proper names
+// "A man's emotions are what define him, and control is the hallmark of true
+// strength. To lack feeling is to be dead, but to act on every feeling is to
+// be a child." -Brandon Sanderson, The Way of Kings, b. 1975
+
+import java.util.*;
+
+public class KyleLFrisbie_2_02 {
+	
+   public static void main (String[] args)throws Exception {
+   
+	// Defining variables
+   double lengthA, lengthB, lengthC;   // Lengths of sides of triangle
+   double perimeter;  						// Perimeter of triangle
+	double s; 									// 1/2 of the perimeter length
+   double area; 								// Area of triangle
+   
+      Scanner console = new Scanner(System.in);
+   
+      // Explanation of what program does
+      System.out.println("This program calculates the area of a triangle, ");
+		System.out.println("with three real numbers representing the length ");
+		System.out.println("of each side of a triangle as its inputs. \n");
+         
+      // Input lengths of sides of triangle		
+		System.out.print("Enter the length of side A of the triangle: "); 
+    	lengthA = console.nextDouble();
+
+      System.out.print("Enter the length of side B of the triangle: "); 
+    	lengthB = console.nextDouble();
+		      
+      System.out.print("Enter the length of side C of the triangle: "); 
+    	lengthC = console.nextDouble();
+      
+      // Calculate the perimeter of the triangle as well as s
+      perimeter = lengthA + lengthB + lengthC;  // The length of the premiter is
+															   // Equal to the sum of all sides
+      s = 0.5 * perimeter;  						   // s is equal to the semiperimeter
+      
+      // Calculate the area of the triangle
+      area = Math.sqrt(s * (s - lengthA) * (s - lengthB) * (s - lengthC));
+      
+      // Output the results
+      System.out.println("\n" + "The lengths of the sides of the triangle are:"
+         + " " + lengthA + ", " + lengthB + ", and " + lengthC + ".");
+      System.out.println("The perimeter of the triangle is: " + perimeter);
+      System.out.println("The area of the triangle is: " + area + "\n");
+      System.out.println("Kyle L Frisbie");
+      
+      System.exit(0);
+   } // End main
+} // End class

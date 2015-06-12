@@ -1,0 +1,31 @@
+Total word and letter count from : Word_TestData.txt
+Author: Kyle L Frisbie
+Word Count             Letter Count   
+drive:             1 |  a:     1  |
+to:                1 |  b:     0  |
+started:           1 |  c:     0  |
+first:             1 |  d:     2  |
+i:                 1 |  e:     3  |
+when:              1 |  f:     1  |
+                     |  g:     0  |
+                     |  h:     1  |
+                     |  i:     3  |
+                     |  j:     0  |
+                     |  k:     0  |
+                     |  l:     0  |
+                     |  m:     0  |
+                     |  n:     1  |
+                     |  o:     1  |
+                     |  p:     0  |
+                     |  q:     0  |
+                     |  r:     3  |
+                     |  s:     2  |
+                     |  t:     4  |
+                     |  u:     0  |
+                     |  v:     1  |
+                     |  w:     1  |
+                     |  x:     0  |
+                     |  y:     0  |
+                     |  z:     0  |
+Total words: 6
+Total letters: 24

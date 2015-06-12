@@ -1,0 +1,133 @@
+/* Assignment #8
+	Process grades and names from an input file; produce a report in an
+	output file based on the range of grades.
+		This program takes an input .txt file with multiple values of test
+		scores corresponding to student names. The program analyzes the
+		names and test scores in the input file and outputs the student's
+		name, grade and a message corresponding to that grade in a table
+		within an new output file. While the program is assessing the values,
+		it is keeping track of the total number of values processed, the
+		number of grades that fall in between a score of 70 and 89, and a
+		sum of all grades between a score of 79 and 89 (to be averaged by
+		dividing the total score by the total number of tests. The program
+		prints these values to the end of the output file.
+
+   Kyle L Frisbie working in association with Tom Selke
+   Program #8, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.util.Scanner;
+import java.io.*;
+import java.text.*;
+
+public class KyleLFrisbie_2_08 {
+
+	static Toolkit_General tools = new Toolkit_General();
+	
+	public static void main (String[] args) throws IOException {
+	
+	// Declare variables
+	String studentName;		// name of student (from input file)
+	int testScore;				// value of individual test score (from input file)
+	String message;			// message to be displayed (in output file) based on grade
+	int dataLines = 0;		// total number of lines processed in input file
+	int val70to89 = 0;		//	number of test scores between 70 and 89
+	double totalGrade = 0;	// sum of all test scores between 70 and 89
+	double realAvg = 0;		// the real average of all test scores between 70 and 89
+	
+	// Define file names, input and output
+	final String INPUT_FILE = "KyleLFrisbie_2_08_Input.txt";
+	final String OUTPUT_FILE = "KyleLFrisbie_2_08_Output.txt";
+	
+	// Access the input/output files
+	File inputDataFile = new File(INPUT_FILE);
+	Scanner inputFile = new Scanner(inputDataFile);
+	
+	FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+	PrintWriter outputFile = new PrintWriter(outputDataFile);
+	System.out.println("Reading file " + INPUT_FILE + "\r\n" +
+							 "Creating file " + OUTPUT_FILE + "\n");
+
+	// Set table heading for output file
+		setHeading(outputFile);
+	
+	// Get values from INPUT_FILE and set to variables	
+	while(inputFile.hasNext()) {
+		testScore = inputFile.nextInt(); 	
+		studentName = inputFile.nextLine();
+		studentName = studentName.trim();
+		
+		// Increment and store number of lines processed with each loop
+		dataLines ++;
+		
+		// Seperate test scores between 70 and 89
+		if (testScore < 90 && testScore >= 70) {
+			val70to89 ++;					// Increment number of tests between 70 and 89
+			totalGrade += testScore;	// Increment total grade with each test score
+												//		value between 70 and 89 (to be averaged
+												//		later)
+		}
+		
+		// Set values to table in output
+		setTableOutput(outputFile, studentName, testScore);
+	}
+	
+	// Set final values to end of output file
+	printFooter(outputFile, dataLines, val70to89, totalGrade, realAvg);
+   
+   inputFile.close(); 	// Close input file
+   outputFile.close(); 	// Close output file						 
+	System.exit(0);
+	
+	}	// End main
+
+	// Method to set output file table heading
+   public static void setHeading(PrintWriter heading){
+		heading.println("********************************************************"
+							 + "**********************");
+      heading.println("Name" + "\t\t\t\t\t" + "Score" + "\t\t\t" + "Feedback\n");
+		
+		heading.println("********************************************************"
+							 + "**********************");
+   }
+	
+	// Method to set table output with values from INPUT_FILE
+	public static void setTableOutput(PrintWriter table, String outName,
+												 int outScore){
+		
+		// Set leftPad and padString variables
+		String padScore;
+		String padName;
+		
+		// Call leftPad from toolkit class and set leftPad variables
+		padScore = tools.leftPad(outScore, 5, "#0", " ");	// To pad number values
+		padName = tools.padString(outName, 20, "", " ");	// To pad string values
+		
+		// Print proper message according to test score to table
+		if(outScore >= 90){
+			table.println(padName + "\t\t\t" + padScore + "\t\t\t" + "OUTSTANDING");
+		} else if (outScore >= 70) {
+			table.println(padName + "\t\t\t" + padScore + "\t\t\t" + "Satisfactory");
+		} else {
+			table.println(padName + "\t\t\t" + padScore + "\t\t\t" + "FAILING");
+		}
+	}
+	
+	// Method with final vaues to be printed to the end of the output file
+	public static void printFooter(PrintWriter footer, int tValues, int tBAndC,
+											 double scoreTotal, double average) {
+		
+		DecimalFormat formatter = new DecimalFormat("#0.0");
+		
+		average = scoreTotal/tBAndC;	// Average the total value of all tests between
+												//		70 and 89 and divide by total number of
+												//		tests between 70 and 89
+		
+		footer.println("\nThe total number of lines processed are: " + tValues);
+		footer.println("The number of grades between 70 and 89 are: " + tBAndC);
+		footer.println("The real average of all grades between 70 and 89 is: "
+							+ formatter.format(average));
+	}
+
+}	// End class

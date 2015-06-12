@@ -1,0 +1,55 @@
+Total word and letter count from : counterTest4.txt
+Author: Kyle L Frisbie
+Word Count             Letter Count   
+intelligence:      1 |  a:    38  |
+artificial:        1 |  b:     5  |
+theoretical:       1 |  c:    25  |
+father:            1 |  d:    13  |
+to:                1 |  e:    43  |
+widely:            1 |  f:    10  |
+is:                1 |  g:    10  |
+purpose:           1 |  h:    21  |
+general:           1 |  i:    42  |
+model:             1 |  j:     0  |
+considered:        2 |  k:     0  |
+be:                2 |  l:    20  |
+can:               1 |  m:    16  |
+which:             1 |  n:    34  |
+machine:           1 |  o:    31  |
+with:              1 |  p:    13  |
+computation:       1 |  q:     0  |
+algorithm:         1 |  r:    25  |
+concepts:          1 |  s:    19  |
+formalisation:     1 |  t:    39  |
+providing:         1 |  u:    12  |
+science:           2 |  v:     2  |
+of:                5 |  w:     5  |
+development:       1 |  x:     0  |
+the:               4 |  y:     4  |
+in:                1 |  z:     0  |
+influential:       1 |  
+highly:            1 |  
+he:                1 |  
+runner:            1 |  
+distance:          1 |  
+ultra:             1 |  
+marathon:          1 |  
+and:               4 |  
+biologist:         1 |  
+mathematical:      1 |  
+scientist:         1 |  
+computer:          4 |  
+philosopher:       1 |  
+cryptanalyst:      1 |  
+logician:          1 |  
+mathematician:     1 |  
+british:           1 |  
+a:                 4 |  
+was:               2 |  
+frs:               1 |  
+obe:               1 |  
+turing:            3 |  
+mathison:          1 |  
+alan:              1 |  
+Total words: 72
+Total letters: 427

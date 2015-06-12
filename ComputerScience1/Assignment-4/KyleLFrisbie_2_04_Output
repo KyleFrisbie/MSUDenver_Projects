@@ -1,0 +1,15 @@
+Input		Running Sum
+
+11.000		11.000
+12.300		23.300
+14.560		37.860
+17.000		54.860
+18.901		73.761
+112.000		185.761
+14.550		200.311
+16.780		217.091
+19.990		237.081
+110.100		347.181
+The total number of numbers in the file are: 10
+The sum of the numbers is: 347.181
+The average of all numbers is: 34.718

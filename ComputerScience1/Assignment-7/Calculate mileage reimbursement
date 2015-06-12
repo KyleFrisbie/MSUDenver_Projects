@@ -1,0 +1,144 @@
+/* Calculate mileage reimbursement based on table.
+		This program takes an input .txt file with multiple values for miles
+		driven. The program analyzes the input file and calculates the
+		appropriate reimbursement for each distance traveled based on values
+		provided for in the speck. While the program is assessing the values,
+		it is printing a table containing the mileage value along with its
+		associated reimbursement amount within a new output file.
+      
+   Kyle L Frisbie working in association with Tom Selke
+   Program #7, CS 1050, Section 2
+   Java Version: 1.8.0_05, jGRASP 2.0.0_11, custom built PC, Windows 8.1
+*/
+
+import java.util.Scanner;
+import java.io.*;
+import java.text.DecimalFormat;
+
+public class KyleLFrisbie_2_07 {
+
+	static Toolkit_General tools = new Toolkit_General();
+	
+	static DecimalFormat formatter = new DecimalFormat("##,##0.00");
+	
+   public static void main(String[] args) throws IOException {
+      
+		// Declare variables
+      double mileage;			// miles driven (found in input file)
+      double reimb;				// reimbursement (calculated from miles)
+      double totalReimb = 0;	// sum of all reimbursement paid
+      int totalCount = 0;		// total number of mileage values
+      int nPositive = 0;		// number of positive mileage values
+      int nValues = 0;			// number of mileage values input file contains
+      
+      // Define file names, input and output
+      final String INPUT_FILE = "KyleLFrisbie_2_07_Input.txt";
+      final String OUTPUT_FILE = "KyleLFrisbie_2_07_Output.txt";
+      
+      // Access the input/output files
+      File inputDataFile = new File(INPUT_FILE);
+      Scanner inputFile = new Scanner(inputDataFile);
+		
+      FileWriter outputDataFile = new FileWriter(OUTPUT_FILE);
+      PrintWriter outputFile = new PrintWriter(outputDataFile);
+      System.out.println("Reading file " + INPUT_FILE + "\r\n" +
+                         "Creating file " + OUTPUT_FILE + "\n");
+      
+      // Set output file table heading
+		setHeading(outputFile);
+      
+      // Set nValues to value of first line of input file
+      nValues = inputFile.nextInt();
+      
+      // Process the mileage values from the input file to calculate
+		// 	reimbursements
+      while(inputFile.hasNext()){
+         mileage = inputFile.nextDouble();
+			
+			// Accumulator for mileage values run
+			totalCount ++;
+			
+			// Call method to calculate reimbursement rates
+			if(mileage <=0){
+			reimb = 0;
+			setTableOutput(outputFile, mileage, reimb);
+			continue;
+			} else {
+				reimb = setReimbursement(mileage);
+			}
+			
+			// Accumulator for reimbursement sum
+			totalReimb += reimb;
+			
+			// Accumulator for positive mileage values
+			nPositive ++;
+			
+			// Print processed numbers to output file
+			setTableOutput(outputFile, mileage, reimb);
+      }
+		
+		// Print final numbers to output file
+		setFinalOutput(outputFile, totalReimb, totalCount, nPositive);
+
+		inputFile.close(); // Close input file
+      outputFile.close(); // Close output file						 
+		System.exit(0);    
+   }
+   
+   // Method to set output file table heading
+   public static void setHeading(PrintWriter heading){
+      heading.println("Table containing the milage driven and reimbursment "
+                         + "provided:\n\n");
+      heading.println("   Mileage" + "\t\t" + "Reimbursement\n");
+   }
+	
+	// Method to set reimbursement value based on mileage
+	public static double setReimbursement(double mile){
+		double reimbursement;
+		
+		if(mile < 400){
+			reimbursement = 0.18 * mile;
+		} else if(mile < 900){
+			reimbursement = 65 + 0.15 * (mile - 400);
+		} else if(mile < 1300){
+			reimbursement = 115 + 0.12 * (mile - 900);
+		} else if(mile < 1900){
+			reimbursement = 140 + 0.1 * (mile - 1300);
+		} else if(mile < 2600){
+			reimbursement = 165 + 0.08 * (mile -1900);
+		} else{
+			reimbursement = 195 + 0.06 * (mile - 2600);
+		}
+		return reimbursement;
+	}
+   
+	// Method to set the output file table
+	public static void setTableOutput(PrintWriter table, double outMileage,
+												 double outReimb){
+		
+		// Set leftPad variables
+		String pad1;
+		String pad2;
+		
+		// Call leftPad from toolkit class and set leftPad variables
+		pad1 = tools.leftPad(outMileage, 10, "#0.0", " ");
+		pad2 = tools.leftPad(outReimb, 10, "#0.00", " ");
+		
+		// Print values to table
+		if(outMileage > 0){
+			table.println(pad1 + "\t\t" + pad2);
+		}else{
+			table.println(pad1 + "\t\t" + "     *****");
+		}
+	}
+	
+	// Method to set the final values to the output file
+	public static void setFinalOutput(PrintWriter finish, double fTotalReimb,
+												 int fTotalCount, int fPositive){
+		finish.println("\nThe total amount of reimbursement is: "
+							+ formatter.format(fTotalReimb));
+		finish.println("The number of mileage values processed are: "
+							+ fTotalCount);
+		finish.println("The number of mileage values > 0 are: " + fPositive);
+	}
+}

@@ -1,0 +1,45 @@
+CS 1050, Mr. Kramer        	        Programming Assignment #3         			  # of points:  20
+
+Purpose: Calculate the area of a triangle and output with JOptionPane.
+Due and re-doable dates are per the Course at a Glance.
+
+If you are handing in a revision, submit the original graded versions also with the most current version on top.  Staple all submissions of this assignment together. 
+
+Revise Program #2 to use a dialog box for input and one dialog box for output. See textbook pages 92-98. To use the dialog box, you will need to include this statement at the beginning of your source code:
+
+	import javax.swing.JOptionPane;
+
+Follow the directions as in Program #2 except:
+
+1.	Use the class name YourName_S_03
+2.	No explanation to the user is needed and no Scanner is needed
+3.	Enter the three sides of the triangle in one dialog box – separate the numbers by spaces.
+ 
+In order for this to work, you will need to use a StringTokenizer and the snippets of code below.
+
+	import java.util.*;
+
+double a, b, c;		// Sides of the triangle
+String inputStr;		// Holds the line that is input from the user
+StringTokenizer st;	// see Section 9.5, pages 595 –up to Code
+							//   Listing 9-8 on page 597
+ 
+inputStr = JOptionPane.showInputDialog(
+					“Enter sides of a triangle separated by spaces”);
+st = new StringTokenizer(inputStr);
+a = Double.parseDouble(st.nextToken());
+b = Double.parseDouble(st.nextToken());
+c = Double.parseDouble(st.nextToken());
+
+4.	Use DecimalFormat to format your output. See textbook pages 174-180.
+	At the beginning of your source code, you will need to include
+		import java.text.*;   
+
+Output should be in ONE dialog box with an appropriate message on each of the five lines in the box. On the first three lines, all numbers should be formatted to two decimal places. The five lines are:
+	The three sides of the triangle
+	The perimeter formatted to one decimal place
+	The area formatted to one decimal place
+	The unformatted area
+	Your name
+
+Include comments as in Programs #1 and #2.  Hand in a printed copy of the source code with line numbers and email a single file with the source code (the .Java file, not the .class file) as an attachment to kramerd@msudenver.edu. I will run your program. Do NOT send a Zip file! The email submission is due on the day shown on the Course at a Glance.

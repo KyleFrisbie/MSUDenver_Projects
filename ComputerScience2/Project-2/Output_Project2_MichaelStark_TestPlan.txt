@@ -1,0 +1,89 @@
+Program 2: Triangle Checker
+Program Author: Kyle L Frisbie
+Test File Author: Michael Stark
+Date Generated: Fri Sep 19 15:16:16 MDT 2014
+
+Input: Cat 1 2 
+Error: Your input contains invalid letters, you entered (Cat). 
+You are not allowed to use letters when entering the sides of a triangle.
+-----
+Input: 1.1 2 3 
+Error: Your input contains an invalid operator, you entered (.). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains a decimal number, you entered (1.1). 
+You are not allowed to use decimal numbers when entering the sides of a triangle
+-----
+Input: 1 3 
+Error: Your input contains less than three numbers. 
+Please enter three valid integers for the sides of a triangle
+-----
+Input: 1 2 3 4 
+Error: Your input contains more than three numbers. 
+Please enter three valid integers for the sides of a triangle.
+-----
+Input: 0 1 2 
+Error: Your input contains a non-positive integer, you entered (0). 
+You are not allowed to use non-positive integers when entering the sides of a triangle
+-----
+Input: 3 4 5 
+Result: Your triangle is SCALENE
+Result: Your triangle is RIGHT
+-----
+Input: 1.1 cat 3.3 
+Error: Your input contains an invalid operator, you entered (.). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains invalid letters, you entered (cat). 
+You are not allowed to use letters when entering the sides of a triangle.
+-----
+Error: Your input contains an invalid operator, you entered (.). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains a decimal number, you entered (1.1). 
+You are not allowed to use decimal numbers when entering the sides of a triangle
+-----
+Error: Your input contains a decimal number, you entered (3.3). 
+You are not allowed to use decimal numbers when entering the sides of a triangle
+-----
+Input: 1 1 1 
+Result: Your triangle is EQUILATERAL
+-----
+Input: 1 1 1000 
+Result: Your triangle is NOT A TRIANGLE.
+-----
+Input: 3 3 2 
+Result: Your triangle is ISOSCELES
+-----
+Input: 12 6 14 
+Result: Your triangle is SCALENE
+-----
+Input: 1, 2, 3 
+Error: Your input contains an invalid operator, you entered (,). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains an invalid operator, you entered (,). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Input: 1 2 3 
+Result: Your triangle is SCALENE
+Result: Your triangle is a SPECIAL CASE TRIANGLE
+The two short sides of your triangle lay directly 
+on top of the long side of your triangle.
+-----
+Input: 
+Error: You did not enter any information. Please input three integer values to identify a triangle.
+-----
+Input: 12 3 
+Error: Your input contains less than three numbers. 
+Please enter three valid integers for the sides of a triangle
+-----
+Input: 1 +2 $4 
+Error: Your input contains an invalid operator, you entered (+). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Error: Your input contains an invalid operator, you entered ($). 
+You are not allowed to use non-integer operators when entering the sides of a triangle
+-----
+Input: -1 
+Result: Exiting program.

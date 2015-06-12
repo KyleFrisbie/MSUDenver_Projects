@@ -1,0 +1,20 @@
+Project 5 Big Addition Extra Credit
+Author: Kyle L Frisbie
+
+Please note the handling of operands larger than 25 digits. This addition to the program has been
+approved by Dr. Gurka as an adition of Extra Credit. I have added the applicable test cases to
+this file for your convenience.
+
+Test Case:       values larger than 25 digits (outside of specs)                                                     
+Operand One:     99,999,999,999,999,999,999,999,999                                                                  
+Operand Two:     1                                                                                                   
+Expected Result: 100,000,000,000,000,000,000,000,000                                                                 
+Actual Result:   100,000,000,000,000,000,000,000,000                                                                 
+Test Passed:     true                                                                                                
+
+Test Case:       values larger than 25 digits (operands of 60 digits each)                                           
+Operand One:     999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999                     
+Operand Two:     999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999                     
+Expected Result: 1,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,998                   
+Actual Result:   1,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,998                   
+Test Passed:     true  

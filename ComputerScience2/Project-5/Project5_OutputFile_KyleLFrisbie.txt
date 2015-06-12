@@ -1,0 +1,67 @@
+BigAddition: Program which adds large numbers using stack operations.
+Author: Kyle L Frisbie
+Input File Read: Project5_KyleLFrisbie_TestData.txt
+
+Test Case:       values in int range                                                                                 
+Operand One:     100                                                                                                 
+Operand Two:     1,000                                                                                               
+Expected Result: 1,100                                                                                               
+Actual Result:   1,100                                                                                               
+Test Passed:     true                                                                                                
+
+Test Case:       values in int range with carry                                                                      
+Operand One:     1                                                                                                   
+Operand Two:     999                                                                                                 
+Expected Result: 1,000                                                                                               
+Actual Result:   1,000                                                                                               
+Test Passed:     true                                                                                                
+
+Test Case:       larger values in int range                                                                          
+Operand One:     483,648                                                                                             
+Operand Two:     47,483,648                                                                                          
+Expected Result: 47,967,296                                                                                          
+Actual Result:   47,967,296                                                                                          
+Test Passed:     true                                                                                                
+
+Test Case:       larger values in int range with commas                                                              
+Operand One:     483,648                                                                                             
+Operand Two:     47,483,648                                                                                          
+Expected Result: 47,967,296                                                                                          
+Actual Result:   47,967,296                                                                                          
+Test Passed:     true                                                                                                
+
+Test Case:       values out of int range in long range                                                               
+Operand One:     4,294,967,296                                                                                       
+Operand Two:     73,014,444,032                                                                                      
+Expected Result: 77,309,411,328                                                                                      
+Actual Result:   77,309,411,328                                                                                      
+Test Passed:     true                                                                                                
+
+Test Case:       values out of long range                                                                            
+Operand One:     20,447,000,000,000,000,000                                                                          
+Operand Two:     123,456,789,109,999,999,999                                                                         
+Expected Result: 143,903,789,109,999,999,999                                                                         
+Actual Result:   143,903,789,109,999,999,999                                                                         
+Test Passed:     true                                                                                                
+
+Test Case:       values out of long range with carry                                                                 
+Operand One:     20,447,000,000,000,000,001                                                                          
+Operand Two:     123,456,789,109,999,999,999                                                                         
+Expected Result: 143,903,789,110,000,000,000                                                                         
+Actual Result:   143,903,789,110,000,000,000                                                                         
+Test Passed:     true                                                                                                
+
+Test Case:       values larger than 25 digits (outside of specs)                                                     
+Operand One:     99,999,999,999,999,999,999,999,999                                                                  
+Operand Two:     1                                                                                                   
+Expected Result: 100,000,000,000,000,000,000,000,000                                                                 
+Actual Result:   100,000,000,000,000,000,000,000,000                                                                 
+Test Passed:     true                                                                                                
+
+Test Case:       values larger than 25 digits (operands of 60 digits each)                                           
+Operand One:     999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999                     
+Operand Two:     999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999                     
+Expected Result: 1,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,998                   
+Actual Result:   1,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,998                   
+Test Passed:     true                                                                                                
+

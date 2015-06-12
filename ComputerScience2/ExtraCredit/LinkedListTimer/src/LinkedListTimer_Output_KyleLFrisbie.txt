@@ -1,0 +1,9 @@
+LinkedListTimer.java
+Author: Kyle L Frisbie
+
+      List Size      Recursive          Array      ArrayList          Stack   DoublyLinked
+            100          33174          24025          27378         567669          31987
+      List Size      Recursive          Array      ArrayList          Stack   DoublyLinked
+           1000         219790          74940           2165         175302         136121
+      List Size      Recursive          Array      ArrayList          Stack   DoublyLinked
+          10000         404520         700159          13479        1201340         617188

@@ -1,0 +1,64 @@
+Project 1
+Due: 03 September 2014 (Wednesday)
+
+Name: Kyle L Frisbie
+Section (noon or evening): Noon
+Assignment: Project 1
+Date submitted: 
+Total time: 7 hrs 50 min
+Submitted: On time
+
+Project time:
+1.	Review: 30 min
+2.	File Stats:
+a.	Phase 1: review specs: 20 min
+b.	Phase 2: create test data: 30 min
+c.	Phase 3: create skeleton program: 60 min
+d.	Phase 4: development finalization: 95 min
+e.	Total time: 205 min = 3 hrs 25 min
+3.	Primes:
+a.	Phase 1: review specs: 10 min
+b.	Phase 2: create test data: 35 min
+c.	Phase 3: create skeleton program: 45 min
+d.	Phase 4: development finalization: 70 min
+e.	Total time: 160 min = 2 hrs 40 min
+4.	Cover Letter and Packet Assembly: 75 min
+
+How’d it go?
+
+5.	What went well? 
+a.	Overall development went smoothly, all test data passed programs on first try, checked compiling often and avoided major compiling errors.
+6.	What problems did you have?
+a.	Spent too much time trying to add features outside of the specifications (checking for valid files and giving user option to exit program in FileStats).
+7.	What did you learn new?
+a.	Learned about toCharArray() which is a method I discovered in the Java API which can take a string and set it to an array of characters. I also became more familiar with how to use JOption Pane.
+8.	Any remaining questions?
+a.	Were sufficient comments provided in the programs? Does my cover letter meet your expectations? Is there anything that my project is lacking that can be added to better meet your standards?
+9.	Other comments on the project?
+a.	Please note in the FileStats program, I went slightly outside of the specifications provided and added additional code to ensure the input file is valid.
+10.	Other discussions as specified with the project.
+a.	I felt very prepared for this project based on my experiences in CS1, based on that I feel that I am very prepared for the CS2 course. I did not feel that the programs were difficult to write, I found myself wanting to include more features to the programs because I am excited to write useful and functional programs to enhance user experience. The phases you suggest for creating a program were unfamiliar to me, I am used to opening up my IDE and based on my general idea for the program, begin writing code. I feel that I don’t require much help from you, most questions that arose were those of style and teacher preference, so that I may best meet your expectations for assignments.
+b.	As mentioned in part a, this development process is different than what I am used to in CS1 and my individual projects. In many cases I see the value of having a game plan outlined with simple components to the program laid out and working before you dive deeper into the meat of the programming, but I found at times it was hard for me to ignore the ideas I had about features I wanted to add to the program while creating the skeleton or working on some of the more structural features of the programs themselves.
+c.	I haven’t done explicit testing before, I guess you could say that in my previous programs I “tested by the seat of my pants” where I would check and assess errors as they came up with my actual data or user input rather than having a set group of test data with predetermined expected results to compare against. For both FileStats and Primes the texts did not reveal any errors in my logic, but I can see their future value in other programming assignments.
+
+ 
+Test Plans:
+
+FileStats:
+File	Lines	Letters	Numbers	Pass/Fail
+one.txt
+(numbers only)	3	0	14	Pass
+two.txt
+(letters only, upper and lower case)	4	25	0	Pass
+three.txt
+(numbers, letters, and other characters)	4	10	9	Pass
+four.txt
+((numbers, letters, other characters, and spaces)	5	18	10	Pass
+
+Primes:
+Upper Limit	List of Primes	Pass/Fail
+10	2, 3, 5, 7	Pass
+17	2, 3, 5, 7, 11, 13, 17	Pass
+25	2, 3, 5, 7, 11, 13, 17, 19, 23	Pass
+45	2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 	Pass
+

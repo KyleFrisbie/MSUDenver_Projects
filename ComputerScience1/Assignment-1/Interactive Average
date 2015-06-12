@@ -1,0 +1,43 @@
+// Interactive Average Program
+// 	This program asks the user to input two real numbers,
+// 	calculates the average of these numbers, and prints the results
+// Kyle L Frisbie
+// Program #1, CS 1050, Section 2 
+// Version of Java: 1.7.0, IDE: jGRASP 1.8.8_12, computer and operating system:
+// Dell Optiplex 960 with Windows 7
+// Charlatan: a pretender to medical skill, quack
+// "That, as we enjoy great advantages from the inventions of others, we should
+// be glad of an opportunity to serve others by any invention of ours; and this
+// we should do generously." -Benjamin Franklin, The Autobiography of Benjamin
+// Franklin, 1706-1790.
+
+import java.util.*;
+
+public class KyleLFrisbie_2_01 {
+
+  static Scanner console = new Scanner(System.in);
+
+  public static void main (String [ ] args) throws Exception  { 
+
+    double num1, num2;   		// Input values
+    double average;				// Average of the input values
+	
+    // Explain the program to the user
+    System.out.println("This program averages two real numbers.");
+
+    // Input the two numbers 
+    System.out.print("Input your first number: "); 
+    num1 = console.nextDouble();
+
+    System.out.print("Input your second number: ");
+    num2 = console.nextDouble();
+
+    // Calculate the average of the two numbers
+    average = (num1 + num2) / 2.0;
+
+    // Output the results
+    System.out.print("The average of " + num1);
+    System.out.println(" and " + num2 + " is " + average);
+    System.out.println("Kyle L Frisbie");
+  } // End main
+} // End class

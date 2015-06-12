@@ -1,0 +1,32 @@
+This page contains a list of the numbers taken from the input file, and their index positions.
+Input Number		Original Index
+4			1
+3			2
+2			3
+1			4
+6			5
+5			6
+The amount of numbers from the input file that fit in the array are: 6
+The amount of numbers from the input file that did not fit in the array is: 0
+
+Kyle L Frisbie
+
+
+
+
+This page contains a list of the numbers taken from the input file, and their index positions.
+Input Number		Original Index
+1			4
+2			3
+3			2
+4			1
+5			6
+6			5
+The amount of numbers from the input file that fit in the array are: 6
+The amount of numbers from the input file that did not fit in the array is: 0
+
+Kyle L Frisbie
+
+
+
+

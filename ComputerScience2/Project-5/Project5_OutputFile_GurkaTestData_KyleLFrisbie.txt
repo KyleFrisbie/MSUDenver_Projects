@@ -1,0 +1,88 @@
+BigAddition: Program which adds large numbers using stack operations.
+Author: Kyle L Frisbie
+Input File Read: Project5_GurkaTestData.txt
+
+Test Case:       minimum data values                                                                                 
+Operand One:     0                                                                                                   
+Operand Two:     0                                                                                                   
+Expected Result: 0                                                                                                   
+Actual Result:   0                                                                                                   
+Test Passed:     true                                                                                                
+
+Test Case:       one operand zero                                                                                    
+Operand One:     786                                                                                                 
+Operand Two:     0                                                                                                   
+Expected Result: 786                                                                                                 
+Actual Result:   786                                                                                                 
+Test Passed:     true                                                                                                
+
+Test Case:       minimum carry                                                                                       
+Operand One:     2                                                                                                   
+Operand Two:     8                                                                                                   
+Expected Result: 10                                                                                                  
+Actual Result:   10                                                                                                  
+Test Passed:     true                                                                                                
+
+Test Case:       one operand max length, no carry                                                                    
+Operand One:     9,876,543,210,111,119,876,543,210                                                                   
+Operand Two:     333                                                                                                 
+Expected Result: 9,876,543,210,111,119,876,543,543                                                                   
+Actual Result:   9,876,543,210,111,119,876,543,543                                                                   
+Test Passed:     true                                                                                                
+
+Test Case:       both operands max length, no carry                                                                  
+Operand One:     1,111,122,222,333,334,444,455,555                                                                   
+Operand Two:     1,010,101,010,101,010,101,010,101                                                                   
+Expected Result: 2,121,223,232,434,344,545,465,656                                                                   
+Actual Result:   2,121,223,232,434,344,545,465,656                                                                   
+Test Passed:     true                                                                                                
+
+Test Case:       one operand max length, carry                                                                       
+Operand One:     9,999,999,999,999,999,999,999,999                                                                   
+Operand Two:     1                                                                                                   
+Expected Result: 10,000,000,000,000,000,000,000,000                                                                  
+Actual Result:   10,000,000,000,000,000,000,000,000                                                                  
+Test Passed:     true                                                                                                
+
+Test Case:       both operands max length, carry                                                                     
+Operand One:     7,898,789,878,987,898,789,878,987                                                                   
+Operand Two:     4,000,000,000,000,000,000,000,000                                                                   
+Expected Result: 11,898,789,878,987,898,789,878,987                                                                  
+Actual Result:   11,898,789,878,987,898,789,878,987                                                                  
+Test Passed:     true                                                                                                
+
+Test Case:       max carry                                                                                           
+Operand One:     9,999,999,999,999,999,999,999,999                                                                   
+Operand Two:     9,999,999,999,999,999,999,999,999                                                                   
+Expected Result: 19,999,999,999,999,999,999,999,998                                                                  
+Actual Result:   19,999,999,999,999,999,999,999,998                                                                  
+Test Passed:     true                                                                                                
+
+Test Case:       no commas                                                                                           
+Operand One:     234                                                                                                 
+Operand Two:     7                                                                                                   
+Expected Result: 241                                                                                                 
+Actual Result:   241                                                                                                 
+Test Passed:     true                                                                                                
+
+Test Case:       commas in answer only                                                                               
+Operand One:     555                                                                                                 
+Operand Two:     600                                                                                                 
+Expected Result: 1,155                                                                                               
+Actual Result:   1,155                                                                                               
+Test Passed:     true                                                                                                
+
+Test Case:       commas in all values                                                                                
+Operand One:     43,214,321                                                                                          
+Operand Two:     22,222,222                                                                                          
+Expected Result: 65,436,543                                                                                          
+Actual Result:   65,436,543                                                                                          
+Test Passed:     true                                                                                                
+
+Test Case:       no carry's                                                                                          
+Operand One:     321,321                                                                                             
+Operand Two:     44                                                                                                  
+Expected Result: 321,365                                                                                             
+Actual Result:   321,365                                                                                             
+Test Passed:     true                                                                                                
+
