@@ -101,7 +101,7 @@ public class HttpServerThread extends Thread{
         cSocketOut.println(toClient);
         Calendar cal = Calendar.getInstance();
         cSocketOut.println("Date: " + dateFormat.format(cal.getTime()));
-        cSocketOut.println("Server: KyleLFrisbie_Server");
+        cSocketOut.println("KyleLFrisbie_Server");
         cSocketOut.println();
 
         return validRequest;
@@ -131,13 +131,6 @@ public class HttpServerThread extends Thread{
 
         if (validRequest) {
             scanRequestedFile(inputFile);
-        }
-
-        // Generate response footer (4 empty lines)
-        if(validRequest) {
-            for (int i = 0; i < 4; i++) {
-                cSocketOut.println();
-            }
         }
     }
 

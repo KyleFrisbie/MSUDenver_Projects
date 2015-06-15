@@ -113,20 +113,27 @@ public class HttpClient {
      * validity of response. Outputs ands stores response data accordingly.
      */
     private void getServerResponse() {
-        try {
-            FileWriter outFile;
+            FileWriter outFile = null;
             PrintWriter outputFile = null;
 
             int emptyLines = 0;
             boolean writeToFile = false;
             boolean badRequest = true;
 
+        // try/catch for while loop/socketIn
+        try {
             while ((emptyLines < 4) &&
                     ((fromServer = socketIn.readLine()) != null)) {
 
-                if(!writeToFile && fromServer.contains("200 OK")) {
+                if (!writeToFile && fromServer.contains("200 OK")) {
                     badRequest = false;
-                    outFile = new FileWriter(fileName.replaceAll("/", ""));
+
+                    // try/catch for creating outFile
+                    try {
+                        outFile = new FileWriter("testResultsClient.txt");
+                    } catch (IOException e) {
+                        System.out.println("Client: Error in creating file.");
+                    }
                     outputFile = new PrintWriter(outFile);
                 }
                 if (fromServer.equals("")) {
@@ -144,11 +151,18 @@ public class HttpClient {
                     outputFile.println(fromServer);
                 }
             }
-            if(!badRequest) {
+        } catch (IOException e) {
+            System.out.println("Client: Error in reading from input socket from server.");
+        }
+        try {
+            if (!badRequest) {
+                fromServer = socketIn.readLine();
+                outputFile.println(fromServer);
+                System.out.println(fromServer);
                 outputFile.close();
             }
-        } catch (IOException e) {
-            System.out.println("Client: unable to process server response.");
+        }catch (IOException e) {
+            System.out.println("Client: Error in closing flie.");
         }
     }
 
