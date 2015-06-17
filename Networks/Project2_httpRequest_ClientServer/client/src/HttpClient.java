@@ -130,7 +130,7 @@ public class HttpClient {
 
                     // try/catch for creating outFile
                     try {
-                        outFile = new FileWriter("testResultsClient.txt");
+                        outFile = new FileWriter(fileName.replaceAll("/", ""));
                     } catch (IOException e) {
                         System.out.println("Client: Error in creating file.");
                     }
