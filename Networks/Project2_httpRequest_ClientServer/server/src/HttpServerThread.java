@@ -25,6 +25,7 @@ public class HttpServerThread extends Thread{
     private String fromClient, toClient = null;
     private File inputDataFile = null;
     private Scanner inputFile;
+    private StringBuilder serverResponse;
 
     /**
      * Constructor to create a new socket instance for this particular thread.
@@ -98,11 +99,10 @@ public class HttpServerThread extends Thread{
         } else {
             toClient = statusItems[2] + " 400 Bad Request";
         }
-        cSocketOut.println(toClient);
+        serverResponse.append(toClient + "\r\n");
         Calendar cal = Calendar.getInstance();
-        cSocketOut.println("Date: " + dateFormat.format(cal.getTime()));
-        cSocketOut.println("KyleLFrisbie_Server");
-        cSocketOut.println();
+        serverResponse.append("Date: " + dateFormat.format(cal.getTime()) + "\r\n");
+        serverResponse.append("KyleLFrisbie_Server" + "\r\n\r\n");
 
         return validRequest;
     }
@@ -115,7 +115,7 @@ public class HttpServerThread extends Thread{
     private void scanRequestedFile(Scanner inputFile) {
         while (inputFile.hasNext()) {
             toClient = inputFile.nextLine();
-            cSocketOut.println(toClient);
+            serverResponse.append(toClient + "\r\n");
         }
     }
 
@@ -132,6 +132,7 @@ public class HttpServerThread extends Thread{
         if (validRequest) {
             scanRequestedFile(inputFile);
         }
+        cSocketOut.println(serverResponse.toString());
     }
 
     /**
@@ -144,6 +145,7 @@ public class HttpServerThread extends Thread{
         try {
             boolean userContinues;
             do {
+                serverResponse = new StringBuilder();
                 fromClient = cSocketIn.readLine();
                 generateServerResponse();
 

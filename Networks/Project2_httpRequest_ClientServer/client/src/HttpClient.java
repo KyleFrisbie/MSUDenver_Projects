@@ -161,6 +161,7 @@ public class HttpClient {
                 System.out.println(fromServer);
                 outputFile.close();
             }
+            socketIn.readLine();
         }catch (IOException e) {
             System.out.println("Client: Error in closing flie.");
         }
