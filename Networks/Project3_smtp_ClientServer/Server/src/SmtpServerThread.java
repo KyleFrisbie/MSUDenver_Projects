@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,7 @@ public class SmtpServerThread extends Thread {
     private Socket clientTCPSocket = null;
     private PrintWriter cSocketOut = null;
     private Scanner cSocketIn = null;
+    private SocketAddress serverIP;
 
     /**
      * Constructor to create a new socket instance for this particular thread.
@@ -32,8 +34,9 @@ public class SmtpServerThread extends Thread {
                     new PrintWriter(clientTCPSocket.getOutputStream(), true);
             cSocketIn = new Scanner(new InputStreamReader(
                     clientTCPSocket.getInputStream()));
-            // todo: ipAddress
-            cSocketOut.println("220 " + "<servers ip>");
+
+            serverIP = clientTCPSocket.getLocalSocketAddress();
+            cSocketOut.println("220 " + serverIP);
         } catch (IOException e) {
             cSocketOut.println("An error occurred while " +
                     "initializing the socket.");
@@ -53,7 +56,8 @@ public class SmtpServerThread extends Thread {
             }
         } while (!tokens[0].equals("HELO"));
         //todo: server and client ip
-        cSocketOut.println("250 <server ip> Hello <client ip>.");
+        cSocketOut.println("250 <" + serverIP + "> Hello <" +
+                clientTCPSocket.getRemoteSocketAddress() +">.");
 
         do {
             nextLine = cSocketIn.nextLine();
