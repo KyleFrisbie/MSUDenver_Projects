@@ -7,8 +7,10 @@ import java.util.Scanner;
 /**
  * @author: Kyle L Frisbie
  * @date: 6/17/15
- * @version: 1.0
- *
+ * @version: 1.4
+
+ * This is a Client program used to send smtp requests to the smtp server.
+ * This is implemented based on Dr. Zhu's TCPClient program example.
  */
 
 public class ClientSmtp {
@@ -20,6 +22,9 @@ public class ClientSmtp {
     private Socket tcpSocket = null;
 
 
+    /**
+     * Get server host name from user.
+     */
     private void requestHostName() {
         System.out.print("Please enter the host name or ip address of your " +
                 "mail server: ");
@@ -59,6 +64,10 @@ public class ClientSmtp {
         }
     }
 
+    /**
+     * Send HELO, MAIL FROM, and RCPT TO messages to server based on user
+     * input. Send email message after Server DATA response.
+     */
     private void communicateWithServer() {
         long startTime;
 
@@ -82,28 +91,54 @@ public class ClientSmtp {
         System.out.println(socketIn.nextLine());
         socketOut.println(data);
         displayRTT("DATA", startTime);
+
+        // user input email
+        promptForEmail();
+        startTime = System.currentTimeMillis();
+        socketOut.println(data);
+        System.out.println(socketIn.nextLine());
+        displayRTT("Mail", startTime);
     }
 
+    /**
+     * Display RTT of specific request to server in ms.
+     * @param procedure
+     * @param startTime
+     */
     private void displayRTT(String procedure, long startTime) {
         System.out.println(procedure + " RTT: " +
                 (System.currentTimeMillis() - startTime) + "ms");
     }
 
+    /**
+     * Prompt user for specific email parameters.
+     */
     private void promptForData() {
-        StringBuilder email = new StringBuilder();
+        StringBuilder header = new StringBuilder();
 
         // get email header
         System.out.println("From: <sender's email address> ");
         mailFrom = systemIn.nextLine();
-        email.append(mailFrom + "\r\n");
+        header.append(mailFrom + "\r\n");
 
         System.out.println("To: <receiver's email address> ");
         rcptTo = systemIn.nextLine();
-        email.append(rcptTo + "\r\n");
+        header.append(rcptTo + "\r\n");
 
         System.out.println("Subject: <email subject>");
         subject =systemIn.nextLine();
-        email.append(subject + "\r\n\r\n");
+        header.append(subject + "\r\n\r\n");
+
+        data = header.toString();
+
+    }
+
+    /**
+     * Get email message from user, continue collecting email until user inputs
+     * a '.' on a line by itself.
+     */
+    private void promptForEmail() {
+        StringBuilder email = new StringBuilder();
 
         // get email message
         System.out.println("Email Contents: " +
@@ -118,6 +153,11 @@ public class ClientSmtp {
         data = email.toString();
     }
 
+    /**
+     * Allow user to continue sending message until user specifies completion
+     * with 'N'.
+     * @return
+     */
     private boolean moreMail() {
         System.out.print("Do you have more mail to send? " +
                 "(type \"Y\" or \"N\"): ");
@@ -128,6 +168,9 @@ public class ClientSmtp {
         return again;
     }
 
+    /**
+     * Close data streams to prevent leak.
+     */
     private void closeDataStreams() {
         systemIn.close();
         socketIn.close();
@@ -138,6 +181,11 @@ public class ClientSmtp {
         }
     }
 
+    /**
+     * Prompt user for messages and communicate with server while user
+     * selects to continue.
+     * @param args
+     */
     public static void main(String[] args) {
         ClientSmtp driver = new ClientSmtp();
         driver.initializeSocket();

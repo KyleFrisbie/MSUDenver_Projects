@@ -2,7 +2,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 /**
- * Created by Kyle on 6/17/2015.
+ * @Author: Kyle L Frisbie
+ * @Date: 6/17/2015.
+ * @Version 1.1
+ *
+ * This is the base Serve class for processing multiple smtp requests from a
+ * user. This is implemented based on Dr. Zhu's TCPServer program example.
  */
 public class ServerSmtp {
     private ServerSocket serverTCPSocket = null;
@@ -22,6 +27,12 @@ public class ServerSmtp {
         }
     }
 
+    /**
+     * Listen on port for new incoming user request, create new thread for each
+     * user request.
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         ServerSmtp driver = new ServerSmtp();
         driver.newSocket();

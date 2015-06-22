@@ -6,7 +6,13 @@ import java.net.SocketAddress;
 import java.util.Scanner;
 
 /**
- * Created by Kyle on 6/17/2015.
+ * @Author: Kyle L Frisbie
+ * @Date: 6/17/2015.
+ * @Version 1.2
+ *
+ * This is a single thread instance for the ServerSmtp class which allows for
+ * multiple instances of the ServerSmtp. This is implemented based on Dr. Zhu's
+ * TCPMultithread program example.
  */
 public class SmtpServerThread extends Thread {
     private Socket clientTCPSocket = null;
@@ -44,6 +50,11 @@ public class SmtpServerThread extends Thread {
         }
     }
 
+    /**
+     * Check smtp request messages from client against expected values. If
+     * client request is incorrect/out of order, respond with appropriate
+     * message and wait for correct response.
+     */
     private void processDataTransfer() {
         String[] tokens;
         String nextLine;
@@ -88,8 +99,11 @@ public class SmtpServerThread extends Thread {
         processClientEmail();
     }
 
+    /**
+     * Prompt user to send email contents, concluded by a '.'.
+     */
     private void processClientEmail() {
-        cSocketOut.println("354 Start mail input; end with <CRLF>.<CRLF>�");
+        cSocketOut.println("354 Start mail input; end with <CRLF>.<CRLF>");
 
         String nextLine;
 
@@ -100,10 +114,17 @@ public class SmtpServerThread extends Thread {
         cSocketOut.println("250 Message received and to be delivered.");
     }
 
+    /**
+     * Check for user continue response.
+     * @return
+     */
     private boolean clientContinues() {
         return !cSocketIn.nextLine().equals("QUIT");
     }
 
+    /**
+     * Close resources to prevent data leak.
+     */
     private void closeDataStreams() {
         //todo serverIp
         cSocketOut.println("221 <servers ip> closing connection");
@@ -116,6 +137,9 @@ public class SmtpServerThread extends Thread {
         }
     }
 
+    /**
+     * Override super's run method with local method calls.
+     */
     public void run() {
         initializeSocket();
         do {
