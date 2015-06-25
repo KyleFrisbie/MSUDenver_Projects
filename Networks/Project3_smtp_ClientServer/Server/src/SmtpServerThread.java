@@ -73,19 +73,19 @@ public class SmtpServerThread extends Thread {
         do {
             nextLine = cSocketIn.nextLine();
             tokens = nextLine.split(" ");
-            if (!tokens[0].equals("MAIL") && !tokens[1].equals("FROM")) {
+            if ((tokens.length < 2) || (!tokens[0].equals("MAIL") && !tokens[1].equals("FROM"))) {
                 cSocketOut.println("503 5.5.2 Need mail command.");
             }
-        } while (!tokens[0].equals("MAIL") && !tokens[1].equals("FROM"));
+        } while ((tokens.length < 2) || (!tokens[0].equals("MAIL") && !tokens[1].equals("FROM")));
         cSocketOut.println("250 2.1.0 Sender OK.");
 
         do {
             nextLine = cSocketIn.nextLine();
             tokens = nextLine.split(" ");
-            if (!tokens[0].equals("RCPT") && !tokens[1].equals("TO")) {
+            if ((tokens.length < 2) || (!tokens[0].equals("RCPT") && !tokens[1].equals("TO"))) {
                 cSocketOut.println("503 5.5.2 Need rcpt command.");
             }
-        } while (!tokens[0].equals("RCPT") && !tokens[1].equals("TO"));
+        } while ((tokens.length < 2) || (!tokens[0].equals("RCPT") && !tokens[1].equals("TO")));
         cSocketOut.println("250 2.1.5 Recipient OK.");
 
         do {
