@@ -1,6 +1,4 @@
-import javax.sound.midi.Soundbank;
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,8 +23,8 @@ public class Dijkstra {
             try {
                 notInteger = false;
                 System.out.print("Input the total number of routers, n, " +
-                        "in the network:");
-                nodes = kb.nextInt();
+                        "in the network: ");
+                nodes = Integer.parseInt(kb.nextLine().toString());
             } catch (Exception e) {
                 System.out.println("Enter only integers, try again.");
                 notInteger = true;
@@ -35,33 +33,42 @@ public class Dijkstra {
     }
 
     private boolean scanInputFile() {
-        ArrayList<Integer[]> costArray = new ArrayList<>();
+        ArrayList<int[]> costArray = new ArrayList<>();
         int lineNumber = 0;
-        Integer[] tokens = new Integer[3];
+        String[] tokens;
+        int[] numTokens;
+        String thisLine;
         while (inputFile.hasNext()) {
             lineNumber++;
-            tokens[0] = inputFile.nextInt();
-            tokens[1] = inputFile.nextInt();
-            tokens[2] = inputFile.nextInt();
-            costArray.add(tokens);
-            if (tokens[0] < 1 || tokens[0] > nodes) {
+            thisLine = inputFile.nextLine();
+            tokens = thisLine.split("\\t");
+            numTokens = new int[] {
+                    Integer.parseInt(tokens[0]),
+                    Integer.parseInt(tokens[1]),
+                    Integer.parseInt(tokens[2])
+            };
+
+            costArray.add(numTokens);
+            if ((numTokens[0] < 1) || (numTokens[0] > nodes)) {
                 System.out.println("Invalid number located at line: " +
-                        lineNumber + " , cloumn: 1");
+                        lineNumber + " , column: 1");
                 return true;
-            } else if (tokens[1] < 1 || tokens[1] > nodes) {
+            } else if (numTokens[1] < 1 || numTokens[1] > nodes) {
                 System.out.println("Invalid number located at line: " +
-                        lineNumber + " , cloumn: 2");
+                        lineNumber + " , column: 2");
                 return true;
-            } else if (tokens[2] < 0) {
+            } else if (numTokens[2] < 0) {
                 System.out.println("Invalid number located at line: " +
-                        lineNumber + " , cloumn: 3");
+                        lineNumber + " , column: 3");
                 return true;
             }
         }
         costMatrix = new int[nodes][nodes];
         for (int i = 0; i < costArray.size(); i++) {
-            Integer[] thisLine = costArray.get(i);
-            costMatrix[thisLine[0]][thisLine[1]] = thisLine[2];
+            int[] values;
+            values = costArray.get(i);
+            costMatrix[values[0] - 1][values[1] - 1] = values[2];
+            System.out.println(costMatrix[values[0] - 1][values[1] - 1]);
         }
         return false;
     }
@@ -77,7 +84,7 @@ public class Dijkstra {
         do {
             hasError = false;
             System.out.print("Input the name of a txt file that contains " +
-                    "costs of all links");
+                    "costs of all links: ");
             try {
                 File inputDataFile = new File(kb.nextLine());
                 inputFile = new Scanner(inputDataFile);
@@ -102,26 +109,24 @@ public class Dijkstra {
         ArrayList<Integer[]> Y = new ArrayList<>();
         D = new int[nodes];
         P = new int[nodes];
-        for (int i = 0; i < nodes; i++) {
-            D[i] = costMatrix[i][0];
-            P[i] = 0;
-            for (int j = 1; j < nodes; j++) {
-                if (D[i] < costMatrix[i][j]) {
-                    D[i] = costMatrix[i][j];
-                    P[i] = j;
-                }
+//        for (int i = 0; i < nodes; i++) {
+            for (int j = 0; j < nodes; j++) {
+                    D[j] = costMatrix[0][j];
+                    P[j] = j;
             }
-        }
-//        for (int k = 1; k < nodes; k++) {
+//        }
+
         N.add(0);
         int k = 1;
         int min = D[k];
         for (int i = 2; i < nodes; i++) {
-            if (D[i] < min && !N.contains(i)) {
+            if (((i > 0) && (i < 2147483647)) && (D[i] < min) && !N.contains(i)) {
                 k = i;
                 min = D[k];
             }
         }
+        N.add(k);
+        Y.add(new Integer[]{P[k], k});
 
         N.add(k);
 
@@ -141,12 +146,11 @@ public class Dijkstra {
 
                 System.out.println("End of loop iteration: " + (i + 1));
                 System.out.println("N': {" + N + "}");
-                System.out.println("Y': {" + Y + "}");
+                System.out.println("Y': {" + Y.toString() + "}");
                 System.out.println("D(V" + (i + 1) + "): " + D[i]);
                 System.out.println("p(V" + (i + 1) + "): " + P[i]);
             }
         }
-//        }
     }
 
     /**
@@ -161,6 +165,14 @@ public class Dijkstra {
      */
     private void buildForwardingTable() {
 
+    }
+
+    public static void main(String[] args) {
+        Dijkstra driver = new Dijkstra();
+        driver.inputRouters();
+        driver.inputTextFile();
+        driver.buildForwardingTable();
+        driver.buildTree();
     }
 
 }
