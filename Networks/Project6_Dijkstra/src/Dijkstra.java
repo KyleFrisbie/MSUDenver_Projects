@@ -76,7 +76,7 @@ public class Dijkstra {
     /**
      * Display a prompt message to ask the user to input the name of a txt file
      * that contains costs of all links. Each line in this file provides the
-     * cost between a pair of routers as below, where tab (‘\t’) is used to
+     * cost between a pair of routers as below, where tab (\t) is used to
      * separate the numbers in each line.
      */
     private void inputTextFile() {
@@ -96,11 +96,11 @@ public class Dijkstra {
     }
 
     /**
-     * Implement the Dijkstra’s algorithm to build up the shortest-path tree
+     * Implement the Dijkstraï¿½s algorithm to build up the shortest-path tree
      * rooted at source router V1. As the intermediate results, at the end of
      * Initialization and each iteration of the Loop, display
-     * The set N’
-     * The set Y’
+     * The set Nï¿½
+     * The set Yï¿½
      * D(i) for each i between 2 and n
      * p(i) for each i between 2 and n
      */
@@ -154,14 +154,14 @@ public class Dijkstra {
     }
 
     /**
-     * Use the shortest-path tree resulted from the Dijsktra’s algorithm to
+     * Use the shortest-path tree resulted from the Dijsktraï¿½s algorithm to
      * build up the forwarding table for router V1. Display the forwarding
      * table in the following format:
      * Destination Link
-     * V2 (V1, …)
-     * V3 (V1, …)
-     * …
-     * Vn (V1, …)
+     * V2 (V1, ï¿½)
+     * V3 (V1, ï¿½)
+     * ï¿½
+     * Vn (V1, ï¿½)
      */
     private void buildForwardingTable() {
 
