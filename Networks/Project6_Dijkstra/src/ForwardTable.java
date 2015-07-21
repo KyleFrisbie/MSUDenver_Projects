@@ -119,7 +119,7 @@ public class ForwardTable {
 
         // loop
         while (nPrime.size() < nRouters) {
-            ArrayList<Integer[]> tempN = new ArrayList<>();
+            int[][] tempN = new int[nRouters][2];
             for (int k = 0; k < nRouters; k++) {
                 boolean notInN = true;
                 for (int i = 0; i < nPrime.size(); i++) {
@@ -128,30 +128,35 @@ public class ForwardTable {
                         break;
                     }
                 }
-                if (notInN) {
-                    tempN.add(new Integer[]{
+                if (notInN && (D[k] != 200000000)) {
+                    tempN[k] = new int[]{
                             k,
                             D[k]
-                    });
+                    };
+                } else {
+                    tempN[k] = new int[]{
+                            k,
+                            -1
+                    };
                 }
             }
 
-            while (!tempN.isEmpty()) {
-//                int kPosition = 0;
+            for (int pos = 0; pos < nRouters; pos++) {
+                //                int kPosition = 0;
 //                int min = costMatrix[u][tempN.get(kPosition)];
 //                int k = tempN.get(kPosition);
 
-                int kPosition = 0;
-                int min = tempN.get(kPosition)[1];
+                int min = tempN[pos][1];
+                int kPosition = pos;
 
-                for (int i = 0; i < tempN.size(); i++) {
-                    if (tempN.get(i)[1] < min) {
-                        min = tempN.get(i)[1];
+                for (int i = 0; i < tempN.length; i++) {
+                    if (tempN[i][1] < min) {
+                        min = tempN[i][1];
                         kPosition = i;
                     }
                 }
 
-                int k = tempN.get(kPosition)[0];
+                int k = tempN[kPosition][0];
 
                 nPrime.add(k);
                 yPrime.add(new Integer[]{
@@ -159,14 +164,12 @@ public class ForwardTable {
                         k
                 });
 
-                for (int i = 0; i < tempN.size(); i++) {
-                    if (D[k] + costMatrix[k][tempN.get(i)[0]] < D[tempN.get(i)[0]]) {
-                        D[tempN.get(i)[0]] = D[k] + costMatrix[k][tempN.get(i)[0]];
-                        P[tempN.get(i)[0]] = k;
+                for (int i = 0; i < tempN.length; i++) {
+                    if (D[k] + costMatrix[k][tempN[i][0]] < D[tempN[i][0]]) {
+                        D[tempN[i][0]] = D[k] + costMatrix[k][tempN[i][0]];
+                        P[tempN[i][0]] = k;
                     }
                 }
-
-                tempN.remove(kPosition);
             }
         }
     }
