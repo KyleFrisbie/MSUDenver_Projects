@@ -34,17 +34,17 @@ public class ForwardTable {
         String[] tokens;
         int[] numTokens;
         int lineNumber = 0;
-        while(inputFile.hasNext()) {
+        while (inputFile.hasNext()) {
             lineNumber++;
             nextLine = inputFile.nextLine();
             tokens = nextLine.split("\\s+");
-            numTokens = new int[] {
+            numTokens = new int[]{
                     Integer.parseInt(tokens[0]),
                     Integer.parseInt(tokens[1]),
                     Integer.parseInt(tokens[2])
             };
 
-            if(((numTokens[0] < 1) && (numTokens[0] < nRouters)) ||
+            if (((numTokens[0] < 1) && (numTokens[0] < nRouters)) ||
                     ((numTokens[1] < 1) && (numTokens[1] < nRouters))) {
                 System.out.println("Invalid router number at line " +
                         lineNumber + ".");
@@ -55,6 +55,17 @@ public class ForwardTable {
                 return false;
             }
             costMatrix[numTokens[0] - 1][numTokens[1] - 1] = numTokens[2];
+            costMatrix[numTokens[1] - 1][numTokens[0] - 1] = numTokens[2];
+
+            for (int i = 0; i < nRouters; i++) {
+                for (int j = 0; j < nRouters; j++) {
+                    if (i != j) {
+                        if (costMatrix[i][j] == 0) {
+                            costMatrix[i][j] = 200000000;
+                        }
+                    }
+                }
+            }
         }
         return true;
     }
@@ -78,71 +89,84 @@ public class ForwardTable {
                 System.out.println("Error reading input file.");
                 validFile = false;
             }
-        } while(!validFile);
+        } while (!validFile);
     }
 
     /**
      * Implement the Dijkstra's algorithm to build up the shortest-path tree
      * rooted at source router V1. As the intermediate results, at the end of
      * Initialization and each iteration of the Loop, display
-     *      The set N'
-     *      The set Y'
-     *      D(i) for each i between 2 and n
-     *       p(i) for each i between 2 and n
+     * The set N'
+     * The set Y'
+     * D(i) for each i between 2 and n
+     * p(i) for each i between 2 and n
      */
-    private void dijsktraAlgorithm() {
+    private void dijkstraAlgorithm() {
         D = new int[nRouters];
         P = new int[nRouters];
 
         // initialize
-        int u = 0;
-        nPrime.add(u);
+        nPrime.add(0);
         for (int i = 0; i < nRouters; i++) {
-            if(i < 2147483647) {
-                D[i] = costMatrix[u][i];
-                P[i] = u;
+            if (costMatrix[0][i] < 200000000) {
+                D[i] = costMatrix[0][i];
+                P[i] = 0;
             } else {
-                D[i] = 2147483647;
+                D[i] = 200000000;
                 P[i] = -1;
             }
         }
 
         // loop
-        while(nPrime.size() < nRouters) {
-            ArrayList<Integer> tempN = new ArrayList<>();
+        while (nPrime.size() < nRouters) {
+            ArrayList<Integer[]> tempN = new ArrayList<>();
             for (int k = 0; k < nRouters; k++) {
                 boolean notInN = true;
-                for (int i = 0; i < D.length; i++) {
-                    if(k == D[i]) {
+                for (int i = 0; i < nPrime.size(); i++) {
+                    if (k == nPrime.get(i)) {
                         notInN = false;
                         break;
                     }
                 }
-                if(notInN) {
-                    tempN.add(k);
+                if (notInN) {
+                    tempN.add(new Integer[]{
+                            k,
+                            D[k]
+                    });
                 }
             }
 
-            int min = costMatrix[u][tempN.get(0)];
-            int k = tempN.get(0);
-            for (int i : tempN) {
-                if(costMatrix[u][tempN.get(i)] < min) {
-                    min = costMatrix[u][tempN.get(0)];
-                    k = tempN.get(i);
-                }
-            }
+            while (!tempN.isEmpty()) {
+//                int kPosition = 0;
+//                int min = costMatrix[u][tempN.get(kPosition)];
+//                int k = tempN.get(kPosition);
 
-            nPrime.add(k);
-            yPrime.add(new Integer[] {
-                    P[k],
-                    k
-            });
+                int kPosition = 0;
+                int min = tempN.get(kPosition)[1];
 
-            for (int i : tempN) {
-                if (D[k] + costMatrix[k][i] < D[i]) {
-                    D[i] = D[k] + costMatrix[k][i];
-                    P[i] = k;
+                for (int i = 0; i < tempN.size(); i++) {
+                    if (tempN.get(i)[1] < min) {
+                        min = tempN.get(i)[1];
+                        kPosition = i;
+                    }
                 }
+
+                int k = tempN.get(kPosition)[0];
+
+                nPrime.add(k);
+                yPrime.add(new Integer[]{
+                        P[k],
+                        k
+                });
+
+                for (int i = 0; i < tempN.size(); i++) {
+                    if (D[k] + costMatrix[k][tempN.get(i)[0]] < D[tempN.get(i)[0]]) {
+                        D[tempN.get(i)[0]] = D[k] + costMatrix[k][tempN.get(i)[0]];
+                        P[tempN.get(i)[0]] = k;
+                    }
+                }
+
+                tempN.remove(kPosition);
             }
         }
     }
@@ -151,11 +175,11 @@ public class ForwardTable {
      * Use the shortest-path tree resulted from the Dijsktra's algorithm to
      * build up the forwarding table for router V1. Display the forwarding
      * table in the following format:
-     *      Destination Link
-     *      V2 (V1, ...)
-     *      V3 (V1, ...)
-     *      ...
-     *      Vn (V1, ...)
+     * Destination Link
+     * V2 (V1, ...)
+     * V3 (V1, ...)
+     * ...
+     * Vn (V1, ...)
      */
     private void buildTable() {
 
@@ -177,9 +201,11 @@ public class ForwardTable {
 
         driver.outputMatrix();
 
-        driver.dijsktraAlgorithm();
+        driver.dijkstraAlgorithm();
 
-        driver.nPrime.toString();
+        for (int i = 0; i < driver.D.length; i++) {
+            System.out.println(driver.D[i] + "\t" + driver.P[i]);
+        }
 
         driver.buildTable();
     }
