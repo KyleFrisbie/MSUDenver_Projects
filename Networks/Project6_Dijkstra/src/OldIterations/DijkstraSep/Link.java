@@ -1,4 +1,4 @@
-package Dijkstra;
+package OldIterations.DijkstraSep;
 
 /**
  * Created by Kyle on 7/21/2015.
