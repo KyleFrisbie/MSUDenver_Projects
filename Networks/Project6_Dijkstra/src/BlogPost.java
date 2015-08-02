@@ -1,3 +1,6 @@
+/**
+ * Created by Kyle on 7/23/2015.
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -12,13 +15,13 @@ import java.util.Scanner;
  * Dijkstras algorithm.
  */
 
-public class Dijkstra {
+public class BlogPost {
 
     private Scanner kb = new Scanner(System.in);
     private ArrayList<Node> nodeCollection;
     private int nRouters;
     private Scanner inputFile;
-    private PathAndPred[] pathAndPreds;
+
 
     /**
      * Special data type to hold specific information regarding each node.
@@ -82,7 +85,6 @@ public class Dijkstra {
             nRouters = Integer.parseInt(kb.nextLine());
         } while (nRouters < 2);
         nodeCollection = new ArrayList<>(nRouters * 2);
-        pathAndPreds = new PathAndPred[nRouters + 1];
     }
 
 
@@ -119,17 +121,6 @@ public class Dijkstra {
                 System.out.println("Invalid link cost number at line " +
                         lineNumber + ".");
                 return false;
-            }
-
-            // add tokens to D(i)/p(i) table
-            if (Integer.parseInt(tokens[0]) == 1) {
-                int index = Integer.parseInt(tokens[1]);
-                pathAndPreds[index] = new PathAndPred("V" + tokens[1],
-                        Integer.parseInt(tokens[2]), "V" + tokens[0]);
-            } else if (Integer.parseInt(tokens[1]) == 1) {
-                int index = Integer.parseInt(tokens[0]);
-                pathAndPreds[index] = new PathAndPred("V" + tokens[0],
-                        Integer.parseInt(tokens[2]), "V" + tokens[1]);
             }
 
             // add a new node to the collection if it doesn't already exist
@@ -225,26 +216,6 @@ public class Dijkstra {
                 }
             }
         }
-
-        // Print D(i)/p(i) table
-        System.out.println("------------------------------------------");
-
-        System.out.print("Node:" + "\t" + "D(i)[]:" + "\t" + "p(i)[]: ");
-        System.out.println();
-        for (int i = 1; i < pathAndPreds.length; i++) {
-            PathAndPred current = pathAndPreds[i];
-            if (current == null) {
-                if(i == 1) {
-                    System.out.println("V" + i + "\t\t0\t\t" + "V" + i);
-                } else {
-                    System.out.println("V" + i + "\t\tinf\t\t-");
-                }
-            } else {
-                System.out.println(current.nodeName + "\t\t" + current.dI + "\t\t" + current.predecessor);
-            }
-        }
-
-        System.out.println("__________________________________________");
     }
 
     /**
@@ -320,8 +291,6 @@ public class Dijkstra {
                     next.minDistance = testLengthDistance;
                     // p(i) = k
                     next.previous = x;
-                    pathAndPreds[next.id] = new PathAndPred(next.name,
-                            testLengthDistance, x.name);
                     if (!yPrime.contains("(" + x.name + ", " + min.node.name + ")")) {
                         yPrime.add("(" + x.name + ", " + min.node.name + ")");
                     }
@@ -360,7 +329,7 @@ public class Dijkstra {
     }
 
     public static void main(String[] args) {
-        Dijkstra driver = new Dijkstra();
+        BlogPost driver = new BlogPost();
         driver.promptForNodeN();
         driver.promptForInputFile();
 
